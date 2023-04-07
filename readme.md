@@ -1,5 +1,5 @@
 #CMPE131 Email Client Project 
- - Pio Romo
+ - Pio Romo (Team Lead)
  - Barak Kaufman
  - Jin Chen 
  - Thien Bryan Nguyen
