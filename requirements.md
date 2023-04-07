@@ -53,6 +53,21 @@
    
 3) The website will allow you to create a profile and manage it 
 4) The website will have verification through phone number 
+  > Summary: User will be able to log in with security
+  > Pre-condition: User must be on log in page
+  > Trigger: "Login" button must be clicked
+  > Primary Sequence: 
+      > User inputs their login information
+      > User clicks login 
+      > User will get a verication code sent to their phone number
+      > User will enter the verification code and click verify
+  > Primary Post-Conditions: User is now verified and logged into the website
+  > Alternative Sequence: 
+      > User inputs their login information
+      > User clicks login
+      > User inputs the incorrect code 
+      > Pop-up prompts user "incorrect code, please enter the correct code." 
+
 5) The website will be able to send messages
 6) The website will be able to create/add/remove toDoList
 7) The website will be able to search for email
