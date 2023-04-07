@@ -52,6 +52,7 @@
       > Website prompts user to re-enter phone number
    
 3) The website will allow you to create a profile and manage it 
+
 4) The website will have verification through phone number 
   > Summary: User will be able to log in with security
   > Pre-condition: User must be on log in page
@@ -69,6 +70,21 @@
       > Pop-up prompts user "incorrect code, please enter the correct code." 
 
 5) The website will be able to send messages
+  > Summary: User will be able to send messages to other users within a chat room
+  > Pre-condition: User must be logged in and in a chatspace
+  > Trigger: "Send" button must be clicked
+  > Primary Sequence: 
+     > User creates chatspace
+     > User adds other users to chatspace
+     > User types message
+     > User clicks send button, and message is now viewable by all users in the chatspace
+  > Primary post-conditions: User is able to view message in chatspace, and remains in chatspace unless exited
+  > Alternative Sequence: 
+     > User creates chatspace
+     > Attempts to add invalid user
+     > System displays error message "Invalid User. Make sure there are no typos!"
+     > User adds valid user
+
 6) The website will be able to create/add/remove toDoList
 7) The website will be able to search for email
 > Summary: Users will be able to search for a desired email
