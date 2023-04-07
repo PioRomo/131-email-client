@@ -52,6 +52,20 @@
       > Website prompts user to re-enter phone number
    
 3) The website will allow you to create a profile and manage it 
+  > Summary: User will be able to create a profile and change it 
+  > Pre-condition: User has downloaded the client
+  > Trigger: user clicks the create a profile button or clicks the edit profile button
+  > Primary Sequence:
+      > User enters their name
+      > User selects a profile icon
+      > User creates an email address
+      > User enters their phone number
+      > User is asked to verify their phone number
+  > Primary Post-Condition: User now has an account that can be used to have access to the client and contact others
+  > Alternative Sequence: 
+      > User is prompted to edit a profile parameter
+      > User is asked to verify their account through password and phone verification
+      > User can change their account parameters
 
 4) The website will have verification through phone number 
   > Summary: User will be able to log in with security
@@ -86,7 +100,23 @@
      > User adds valid user
 
 6) The website will be able to create/add/remove toDoList
-7) The website will be able to search for email
+> Summary: Users will be able to manage their TODO list by adding, reorganizing, and removing items
+> Pre-condition: User has an account and has opened the TODO list
+> Trigger: User clicks "manage TODO list" button
+> Primary Sequence:
+      > User can create Todo list blocks to drag onto a schedule
+          > User clicks "create new task" button
+          > User enters task name and length
+      > User can move existing blocks around on the schedule
+          > User holds and drags block to a new location
+      > User can remove blocks from the schedule
+          > User clicks a block and clicks remove
+> Primary Post-Conditions: user has a todo list with many different tasks at different time blocks
+> Alternative sequence:
+      > User attempts to place a task in a time block that is already being used
+      > user is prompted to place the task in a different non-overlapping time slot 
+
+8) The website will be able to search for email
 > Summary: Users will be able to search for a desired email
   > Pre-condition: Users must be logged in and in the inbox
   > Trigger: Clicking the "Search" button 
@@ -101,7 +131,7 @@
       > User enters unknown keywords
       > Website displays "No emails matched your search"
       > Website prompts user to re-enter keywords
-8) The website will implement a password requirement
+9) The website will implement a password requirement
 > Summary: Users must input a password that satisfies the website's password requirement
   > Pre-condition: Users must be in the "Password Creation" page
   > Trigger: Inputting the verification code sent to the phone number
