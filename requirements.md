@@ -55,5 +55,36 @@
 4) The website will have verification through phone number 
 5) The website will be able to send messages
 6) The website will be able to create/add/remove toDoList
-7) The website will be able to search for emails
+7) The website will be able to search for email
+> Summary: Users will be able to search for a desired email
+  > Pre-condition: Users must be logged in and in the inbox
+  > Trigger: Clicking the "Search" button 
+  > Primary Sequence: 
+      > Website takes user to user's inbox
+      > User clicks the Search button
+      > User inputs keywords into search bar
+      > Website prompts user with emails containing keywords 
+      > User selects desired email
+  > Primary Post-Conditions: User has found the email that they are looking for
+  > Alternative Sequence: 
+      > User enters unknown keywords
+      > Website displays "No emails matched your search"
+      > Website prompts user to re-enter keywords
 8) The website will implement a password requirement
+> Summary: Users must input a password that satisfies the website's password requirement
+  > Pre-condition: Users must be in the "Password Creation" page
+  > Trigger: Inputting the verification code sent to the phone number
+  > Primary Sequence: 
+      > Website takes user to "Password Creation" page
+      > User inputs password that they want for their email
+      > Website checks if the password satisfies the requirements
+      > Website prompts user to input the password they inputted again
+      > User selects "Welcome"
+  > Primary Post-Conditions: User is now registered and taken to the home page
+  > Alternative Sequence: 
+      > User enters an invalid password
+      > Website displays error message
+      > Website prompts user to re-enter a qualifying password
+      > User enters incorrect password
+      > Website displays error message
+      > Website prompts user to re-enter the same qualifying password
