@@ -11,6 +11,8 @@ from flask_login import login_user
 from flask_login import logout_user
 from flask_login import login_required
 
+
+#internal class that will verify phone numbers for us
 class PhoneForm(FlaskForm): 
     phone = StringField('Phone', validators=[DataRequired()])
     submit = SubmitField('Submit')
@@ -35,7 +37,7 @@ def index():
               'book': 'bookname2'}]
     return render_template('hello.html',name=name, books=books)
 
-
+#login method
 @myapp_obj.route("/login", methods =['GET', 'POST'])
 def login():
     msg = ''
@@ -55,6 +57,7 @@ def login():
             msg = 'Incorrect username / password !'
     return render_template('login.html', msg = msg)
  
+#logout method
 @myapp_obj.route("/logout")
 def logout():
     session.pop('loggedin', None)
@@ -62,10 +65,10 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('login'))
 
-
+#register method
 @myapp_obj.route("/register", methods =['GET', 'POST'])
 def register():
-    form = PhoneForm()         
+         
     msg = ''
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form and 'phone number' in request.form :
         username = request.form['username']
@@ -74,13 +77,14 @@ def register():
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM accounts WHERE username = % s', (username, ))
         account = cursor.fetchone()
+        p = phonenumbers.parse(phoneNumber)
         if account:
             msg = 'Account already exists !'
-        elif not form.validate_on_Submit():
-            msg = 'Invalid phone!'
+        elif not phonenumbers.is_valid_number(p): 
+            msg = "Phone Number is invalid!"
         elif not re.match(r'[A-Za-z0-9]+', username):
             msg = 'Username must contain only characters and numbers !'
-        elif not username or not password or not email:
+        elif not username or not password or not phoneNumber:
             msg = 'Please fill out the form !'
         else:
             cursor.execute('INSERT INTO accounts VALUES (NULL, % s, % s, % s)', (username, password, email, ))
