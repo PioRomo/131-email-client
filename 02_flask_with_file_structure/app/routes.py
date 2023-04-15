@@ -3,6 +3,7 @@ from flask import escape
 
 @myapp_obj.route("/")
 #@myapp_obj.route("/index.html")
+@myapp_obj.route("/")
 def index():
     return "hi"
 
