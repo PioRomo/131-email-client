@@ -36,7 +36,7 @@ def index():
               'book': 'bookname2'}]
     return render_template('hello.html',name=name, books=books)
 
-]
+
 @myapp_obj.route("/login", methods =['GET', 'POST'])
 def login():
     msg = ''
