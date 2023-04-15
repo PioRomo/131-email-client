@@ -26,8 +26,7 @@ class PhoneForm(FlaskForm):
 
 
 @myapp_obj.route("/")
-@myapp_obj.route("/index.html")
-           
+@myapp_obj.route("/index.html")           
 def index():
     name = 'Carlos'
     books = [ {'author': 'authorname1',
