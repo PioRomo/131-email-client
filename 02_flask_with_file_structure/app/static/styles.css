@@ -1,3 +1,29 @@
-#Welcome{
-  color: red; 
+body{
+  background-color:#222224; 
+  font-family: 'Anuphan', sans-serif;
+  color:white; 
+}
+
+#nav{
+  background-color: #fad75a;
+  overflow:hidden; 
+  list-style-type: none; 
+  width:100%; 
+  margin:0px; 
+  padding:10px; 
+  position:fixed;  
+}
+
+#main{
+  
+}
+
+#nav a{
+  margin-left:10px;
+  padding:5 px; 
+  text-align: right; 
+}
+
+.active{
+  background-color: #7a7667; 
 }
