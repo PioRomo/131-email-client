@@ -26,9 +26,9 @@ def index():
     return render_template('hello.html',name=name, books=books)
 
 #login method
-@myapp_obj.route("/login", methods =['GET', 'POST'])
+@myapp_obj.route("/login")
 def login():
-    return render_template('login.html', msg = msg)
+    return render_template('login.html')
  
 #logout method
 @myapp_obj.route("/logout")
@@ -36,6 +36,6 @@ def logout():
     return redirect(url_for('login'))
 
 #register method
-@myapp_obj.route("/register", methods =['GET', 'POST'])
+@myapp_obj.route("/register")
 def register():
-    return render_template('register.html', msg = msg)
+    return render_template('register.html')
