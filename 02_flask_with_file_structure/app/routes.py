@@ -36,8 +36,8 @@ def index():
               'book': 'bookname2'}]
     return render_template('hello.html',name=name, books=books)
 
-@myapp_obj.route('/')
-@myapp_obj.route('/login', methods =['GET', 'POST'])
+]
+@myapp_obj.route("/login", methods =['GET', 'POST'])
 def login():
     msg = ''
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
@@ -56,7 +56,7 @@ def login():
             msg = 'Incorrect username / password !'
     return render_template('login.html', msg = msg)
  
-@myapp_obj.route('/logout')
+@myapp_obj.route("/logout")
 def logout():
     session.pop('loggedin', None)
     session.pop('id', None)
@@ -64,7 +64,7 @@ def logout():
     return redirect(url_for('login'))
 
 
-@myapp_obj.route('/register', methods =['GET', 'POST'])
+@myapp_obj.route("/register", methods =['GET', 'POST'])
 def register():
     form = PhoneForm()         
     msg = ''
