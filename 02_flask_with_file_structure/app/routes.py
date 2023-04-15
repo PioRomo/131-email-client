@@ -7,7 +7,7 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, ValidationError
 import phonenumbers
 import re 
-import MySQLdb.cursors
+
 
 from flask_login import current_user
 from flask_login import login_user
