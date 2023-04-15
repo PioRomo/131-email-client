@@ -32,6 +32,7 @@ class PhoneForm(FlaskForm):
 def index():
     name = 'Carlos'
     books = [ {'author': 'authorname1',
+                'book':'bookname1'},
              {'author': 'authorname2',
               'book': 'bookname2'}]
     return render_template('hello.html',name=name, books=books)
