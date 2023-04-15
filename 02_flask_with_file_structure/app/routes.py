@@ -1,33 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
- 
-@PioRomo 
-ProfRojas
-/
-flask
-Public
-Fork your own copy of ProfRojas/flask
-Code
-Issues
-Pull requests
-Actions
-Projects
-Security
-Insights
-flask/10_login/app/routes.py /
-@carlosrojas
-carlosrojas Add database and login files
-Latest commit ae2b548 on Mar 13
- History
- 1 contributor
-43 lines (39 sloc)  1.24 KB
- 
-
 from flask import render_template
 from flask import redirect
 from flask import flash
