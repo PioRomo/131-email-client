@@ -36,29 +36,32 @@ def index():
               'book': 'bookname2'}]
     return render_template('hello.html',name=name, books=books)
 
-@myapp_obj.route("/hello")
-@login_required
-def hello():
-    return "Hello World!"
-
-@myapp_obj.route("/login", methods=['GET', 'POST'])
+@myapp_obj.route('/')
+@myapp_obj.route('/login', methods =['GET', 'POST'])
 def login():
-    # create form
-    form = LoginForm()
-    # if form inputs are valid
-    if form.validate_on_submit():
-        # search database for username
-        # user = User.query.filter_by(...)
-        # check the password
-        # if password matches
-        # login_user(user)
-        flash(f'Here are the input {form.username.data} and {form.password.data}')
-        return redirect('/')
-    return render_template('login.html', form=form)
-
-@myapp_obj.route("/members/<string:name>/")
-def getMember(name):
-    return escape(name)
+    msg = ''
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+        username = request.form['username']
+        password = request.form['password']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM accounts WHERE username = % s AND password = % s', (username, password, ))
+        account = cursor.fetchone()
+        if account:
+            session['loggedin'] = True
+            session['id'] = account['id']
+            session['username'] = account['username']
+            msg = 'Logged in successfully !'
+            return render_template('index.html', msg = msg)
+        else:
+            msg = 'Incorrect username / password !'
+    return render_template('login.html', msg = msg)
+ 
+@app.route('/logout')
+def logout():
+    session.pop('loggedin', None)
+    session.pop('id', None)
+    session.pop('username', None)
+    return redirect(url_for('login'))
 
 
 @myapp_obj.route('/register', methods =['GET', 'POST'])
