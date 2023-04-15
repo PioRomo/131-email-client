@@ -39,3 +39,11 @@ def logout():
 @myapp_obj.route("/register")
 def register():
     return render_template('register.html')
+
+@myapp_obj.route('/remove', methods=['GET', 'POST'])
+@login_required
+def remove():
+    current_user.remove()
+    db.session.commit()
+    flash('You are no longer exist')
+    return redirect(url_for("/"))
