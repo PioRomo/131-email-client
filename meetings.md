@@ -9,7 +9,10 @@
  -Milestone 1 will be submitted before 4 pm today
 
 -2023-04-14 2:00 - 2:30
-
+ -All members present for meeting
+ -Discussed upcoming weeks plan
+ -Agreed at least 3 requirements should be implemented by next meeting 
+ -Specific requirements and who does what will be decided as we go 
 -2023-04-21 2:00 - 2:30
 
 -2023-04-28 2:00 - 2:30
