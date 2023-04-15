@@ -1,22 +1,37 @@
-from flask import render_template
-from flask import request
-from flask import redirect
-from flask import url_for
-from flask import session
-from flask import flash
+from flask import render_template, request, redirect, url_for, session, flash
 from .forms import LoginForm
 from app import myapp_obj
+from flask_bootstrap import BootStrap
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired, ValidationError
+import phonenumbers
+
 from flask_login import current_user
 from flask_login import login_user
 from flask_login import logout_user
 from flask_login import login_required
 
+class PhoneForm(FlaskForm): 
+    phone = StringField('Phone', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
+    def validate_phone(self, phone):
+        try:
+            p = phonenumbers.parse(phone.data)
+            if not phonenumbers.is_valid_number(p):
+                raise ValueError()
+        except (phonenumbers.phonenumberutil.NumberParseException, ValueError):
+            raise ValidationError('Invalid phone number')
+
+
+
 @myapp_obj.route("/")
 @myapp_obj.route("/index.html")
+                'book':'bookname1'},
 def index():
     name = 'Carlos'
     books = [ {'author': 'authorname1',
-                'book':'bookname1'},
              {'author': 'authorname2',
               'book': 'bookname2'}]
     return render_template('hello.html',name=name, books=books)
@@ -48,6 +63,7 @@ def getMember(name):
 
 @myapp_obj.route('/register', methods =['GET', 'POST'])
 def register():
+    form = PhoneForm()         
     msg = ''
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form and 'phone number' in request.form :
         username = request.form['username']
@@ -58,8 +74,8 @@ def register():
         account = cursor.fetchone()
         if account:
             msg = 'Account already exists !'
-        elif not re.match(r'[^@]+@[^@]+\.[^@]+', phoneNumber):
-            msg = 'Invalid phone !'
+        elif not form.validate_on_Submit():
+            msg = 'Invalid phone!'
         elif not re.match(r'[A-Za-z0-9]+', username):
             msg = 'Username must contain only characters and numbers !'
         elif not username or not password or not email:
