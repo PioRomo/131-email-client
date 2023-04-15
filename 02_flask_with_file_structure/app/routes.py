@@ -2,7 +2,7 @@ from flask import render_template, request, redirect, url_for, session, flash
 from .forms import LoginForm
 from app import myapp_obj
 from flask_wtf import FlaskForm
-from flask_mysqldb import MySQL
+
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, ValidationError
 import phonenumbers
