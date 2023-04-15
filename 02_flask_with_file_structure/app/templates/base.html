@@ -1,18 +1,21 @@
 <html>
     <head>
          <link rel="stylesheet" href="/static/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300&display=swap" rel="stylesheet">
         <title>Home Page - my blog</title>
     </head>
     <body>
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-            <ul>
-                {% for message in messages %}
-                    <li>{{ message }} </li>
-                {% endfor %}
-            </ul>
-            {% endif %}
-        {% endwith %}
-        {% block content %} {% endblock %}
+        <div id = "nav"> 
+            <a href = "http://127.0.0.1:5000/register">Register</a>
+            <a href = "http://127.0.0.1:5000/login">Login</a>
+            <a href = "http://127.0.0.1:5000/logout">Logout</a>
+        </div> 
+  
+    <div id = "main">
+        <p>Hello, Welcome!</p>
+    </div>
+        
     </body>
 </html>
