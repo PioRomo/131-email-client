@@ -46,7 +46,7 @@ def getMember(name):
 @myapp_obj.route('/register', methods =['GET', 'POST'])
 def register():
     msg = ''
-    if request.method == 'POST' and 'username' in request.form and 'password' in request.form and 'email' in request.form :
+    if request.method == 'POST' and 'username' in request.form and 'password' in request.form and 'phone number' in request.form :
         username = request.form['username']
         password = request.form['password']
         phoneNumber = request.form['phone number']
@@ -56,7 +56,7 @@ def register():
         if account:
             msg = 'Account already exists !'
         elif not re.match(r'[^@]+@[^@]+\.[^@]+', phoneNumber):
-            msg = 'Invalid email address !'
+            msg = 'Invalid phone !'
         elif not re.match(r'[A-Za-z0-9]+', username):
             msg = 'Username must contain only characters and numbers !'
         elif not username or not password or not email:
