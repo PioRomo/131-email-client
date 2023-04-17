@@ -88,3 +88,8 @@ def delete():
     db.session.commit()
     flash('You are no longer exist')
     return render_template('deleteAccount.html')
+
+@myapp_obj.route('/profile')
+@login_required
+def profile():
+    return render_template('profile.html', name=current_user.name)
