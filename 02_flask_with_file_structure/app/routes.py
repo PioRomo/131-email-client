@@ -39,6 +39,31 @@ def logout():
 def register():
     return render_template('register.html')
 
+@myapp_obj.route("/register", methods=['POST'])
+def register_post():
+    username = request.form.get('username')
+    password = request.form.get('password')
+    phonenumber = request.form.get('phoneNumber')
+    
+    user = User.query.filter_by(phonenumber=phonenumber).first()
+    
+    my_number = phonenumbers.parse(phonenumber)
+    if phonenumbers.is_valid_number(my_number):
+        if user: 
+        flash('Email address already exists')
+        return redirect(url_for('register'))
+    
+    new_user = User(phonenumber=phonenumber, name=name, password=generate_password_hash(password, method='sha256'))
+    
+    db.session.add(new_user)
+    db.session.commit()
+    else:
+        flash('Invalid phone number!')
+   
+    
+    
+     
+
 @myapp_obj.route('/deleteAccount', methods=['GET', 'POST'])
 @login_required
 def delete():
