@@ -18,7 +18,6 @@ myapp_obj.config.from_mapping(
 
 db = SQLAlchemy(myapp_obj)
 
-db.init_app(myapp_obj)
 
 login = LoginManager(myapp_obj)
 
