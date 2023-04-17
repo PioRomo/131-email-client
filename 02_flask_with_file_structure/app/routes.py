@@ -30,6 +30,20 @@ def index():
 @myapp_obj.route("/login")
 def login():
     return render_template('login.html')
+
+@myapp_obj.route('/login', methods=['POST'])
+def login_post():
+    email = request.form.get('email')
+    password = request.form.get('password')
+    remember = True if request.form.get('remember') else False
+
+    user = User.query.filter_by(phonenumber=phonenumber).first()
+
+    if not user or not check_password_hash(user.password, password):
+        flash('Please check your login details and try again.')
+        return redirect(url_for('login')) 
+
+    return redirect(url_for('profile'))
  
 #logout method
 @myapp_obj.route("/logout")
