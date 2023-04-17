@@ -5,7 +5,7 @@ from flask_login import LoginManager
 
 myapp_obj = Flask(__name__)
 
-with app.app_context():
+with myapp_obj.myapp_obj_context():
     init_db()
 
 basedir = os.path.abspath(os.path.dirname(__file__))
