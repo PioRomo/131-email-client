@@ -1,10 +1,5 @@
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title> Register </title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">             
-    </head>
-    <body></br></br></br></br></br>
+{% extends base.html % }
+{% block page % }
         <div align="center">
           <div align="center" class="border">
              <div class="header">
@@ -22,5 +17,5 @@
             <p class="bottom">Already have an account?  <a class="bottom" href="{{url_for('login')}}"> Sign In here</a></p>
           </div>
         </div>
-    </body>
-</html>
+{% end block % }
+  
