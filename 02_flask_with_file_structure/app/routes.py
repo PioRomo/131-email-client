@@ -53,10 +53,10 @@ def register_post():
             flash('Email address already exists')
             return redirect(url_for('register'))
     
-    new_user = User(phonenumber=phonenumber, name=name, password=generate_password_hash(password, method='sha256'))
+        new_user = User(phonenumber=phonenumber, name=name, password=generate_password_hash(password, method='sha256'))
     
-    db.session.add(new_user)
-    db.session.commit()
+        db.session.add(new_user)
+        db.session.commit()
     else:
         flash('Invalid phone number!')
    
