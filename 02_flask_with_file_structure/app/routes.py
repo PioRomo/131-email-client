@@ -48,7 +48,7 @@ def login_post():
  
 #logout method
 @myapp_obj.route("/logout")
-@login.required
+@login_required
 def logout():
     logout_user()
     return redirect(url_for('login'))
