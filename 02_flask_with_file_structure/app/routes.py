@@ -43,6 +43,7 @@ def login_post():
         flash('Please check your login details and try again.')
         return redirect(url_for('login')) 
 
+    login_user(user, remember=remember)
     return redirect(url_for('profile'))
  
 #logout method
