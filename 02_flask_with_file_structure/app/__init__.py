@@ -26,4 +26,3 @@ login.login_view = 'login'
 
 from app import routes, models
 
-return app
