@@ -45,7 +45,7 @@ def register():
 def register_post():
     username = request.form.get('username')
     password = request.form.get('password')
-    phonenumber = request.form.get('phoneNumber')
+    phonenumber = request.form.get('phonenumber')
     
     user = User.query.filter_by(phonenumber=phonenumber).first()
     
