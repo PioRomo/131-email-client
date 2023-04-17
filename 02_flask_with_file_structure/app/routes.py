@@ -50,8 +50,8 @@ def register_post():
     my_number = phonenumbers.parse(phonenumber)
     if phonenumbers.is_valid_number(my_number):
         if user: 
-        flash('Email address already exists')
-        return redirect(url_for('register'))
+            flash('Email address already exists')
+            return redirect(url_for('register'))
     
     new_user = User(phonenumber=phonenumber, name=name, password=generate_password_hash(password, method='sha256'))
     
