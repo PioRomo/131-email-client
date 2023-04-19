@@ -1,23 +1,23 @@
 ## Functional Requirements 
-* The website will be able to send emails
-* The website will allow you to create account
-* The website will allow you to create a profile and manage it
-* The website will have verification through phone number
-* The website will be able to send messages
-* The website will be able to create/add/remove To Do List
-* The website will be able to search for emails
-* The website will allow users to attach images to emails
-* The website will send users notifications
-* The website will allow users to save/archive emails
-* The website will allow users to create a contact Book
-* The website will allow users to delete emails
+* [The website will be able to send emails][#1) The website will be able to send emails ]
+* [The website will allow you to create account][]
+* [The website will allow you to create a profile and manage it][]
+* [The website will have verification through phone number][]
+* [The website will be able to send messages][]
+* [The website will be able to create/add/remove To Do List][]
+* [The website will be able to search for emails][]
+* [The website will allow users to attach images to emails][]
+* [The website will send users notifications][]
+* [The website will allow users to save/archive emails][]
+* [The website will allow users to create a contact Book][]
+* [The website will allow users to delete emails][]
 
 ## Non-functional Requirements 
 * The website will allow for dark and light theme
 * The website will run on Google Chrome
 
 ## Func.Req. Use Cases
-1) The website will be able to send emails 
+#### 1) The website will be able to send emails 
   > Summary: This app will allow users to send emails to other users
   > Pre-condition: User must be logged in
   > Trigger: "Send" button must be clicked
@@ -33,7 +33,7 @@
       > Email does not exist, or is invalid
       > Pop-up prompts user to re-enter email and try again
  
-2) The website will you to create an account 
+#### 2) The website will you to create an account 
   > Summary: Users will be able to register themselves for our app by creating an account
   > Pre-condition: Users must have a valid phone number
   > Trigger: Clicking the "Create Account" button 
