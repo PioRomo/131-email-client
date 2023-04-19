@@ -1,5 +1,5 @@
 ## Functional Requirements 
-* [The website will be able to send emails][#1) The website will be able to send emails ]
+* [The website will be able to send emails][# 1) The website will be able to send emails ]
 * [The website will allow you to create account][]
 * [The website will allow you to create a profile and manage it][]
 * [The website will have verification through phone number][]
