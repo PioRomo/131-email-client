@@ -5,7 +5,7 @@ CMPE131 Email Client Project
  - Thien Bryan Nguyen @thienbryannguyen6670
 
 
-# BeeMail - CMPE 131 Email Client Grooup Project 
+# BeeMail - CMPE 131 Email Client Group Project 
 > Email client web application for CMPE 131 using Python, Flask, HTML, CSS
 
 ## Table of Contents
