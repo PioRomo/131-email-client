@@ -6,11 +6,11 @@
 * The website will be able to send messages
 * The website will be able to create/add/remove To Do List
 * The website will be able to search for emails
-* The website will allow you to switch between clients
+* The website will allow users to attach images to emails
 * The website will send users notifications
-* The website will allow users to organize folders
+* The website will allow users to save/archive emails
 * The website will allow users to create a contact Book
-* The website will implement a Password Requirement
+* The website will allow users to delete messages
 
 ---- Non-functional Requirements ----
 * The website will allow for dark and light theme
