@@ -1,4 +1,4 @@
----- Functional Requirements ----
+## Functional Requirements 
 * The website will be able to send emails
 * The website will allow you to create account
 * The website will allow you to create a profile and manage it
@@ -12,11 +12,11 @@
 * The website will allow users to create a contact Book
 * The website will allow users to delete emails
 
----- Non-functional Requirements ----
+## Non-functional Requirements 
 * The website will allow for dark and light theme
 * The website will run on Google Chrome
 
----- Func.Req. Use Cases ----
+## Func.Req. Use Cases
 1) The website will be able to send emails 
   > Summary: This app will allow users to send emails to other users
   > Pre-condition: User must be logged in
