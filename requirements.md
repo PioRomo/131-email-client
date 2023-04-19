@@ -10,7 +10,7 @@
 * The website will send users notifications
 * The website will allow users to save/archive emails
 * The website will allow users to create a contact Book
-* The website will allow users to delete messages
+* The website will allow users to delete emails
 
 ---- Non-functional Requirements ----
 * The website will allow for dark and light theme
