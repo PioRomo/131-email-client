@@ -1,16 +1,16 @@
 ## Functional Requirements 
 * [The website will be able to send emails](#the-website-will-be-able-to-send-emails)
-* [The website will allow you to create account][]
-* [The website will allow you to create a profile and manage it][]
-* [The website will have verification through phone number][]
-* [The website will be able to send messages][]
-* [The website will be able to create/add/remove To Do List][]
-* [The website will be able to search for emails][]
-* [The website will allow users to attach images to emails][]
-* [The website will send users notifications][]
-* [The website will allow users to save/archive emails][]
-* [The website will allow users to create a contact Book][]
-* [The website will allow users to delete emails][]
+* [The website will allow you to create account](#the-website-will-you-to-create-an-account)
+* [The website will allow you to create a profile and manage it](#the-website-will-allow-you-to-create-a-profile-and-manage-it)
+* [The website will have verification through phone number](#the-website-will-have-verification-through-phone-number)
+* [The website will be able to send messages](#the-website-will-be-able-to-send-messages)
+* [The website will be able to create/add/remove To Do List](#the-website-will-be-able-to-create/add/remove-toDoList)
+* [The website will be able to search for emails](#the-website-will-be-able-to-search-for-email)
+* [The website will allow users to attach images to emails]()
+* [The website will send users notifications]()
+* [The website will allow users to save/archive emails]()
+* [The website will allow users to create a contact Book]()
+* [The website will allow users to delete emails](#the-website-will-be-able-to-delete-emails)
 
 ## Non-functional Requirements 
 * The website will allow for dark and light theme
@@ -33,7 +33,7 @@
       > Email does not exist, or is invalid
       > Pop-up prompts user to re-enter email and try again
  
-#### 2) The website will you to create an account 
+## The website will you to create an account 
   > Summary: Users will be able to register themselves for our app by creating an account
   > Pre-condition: Users must have a valid phone number
   > Trigger: Clicking the "Create Account" button 
@@ -51,7 +51,7 @@
       > Website displays error message 
       > Website prompts user to re-enter phone number
    
-3) The website will allow you to create a profile and manage it 
+  ## The website will allow you to create a profile and manage it 
   > Summary: User will be able to create a profile and change it 
   > Pre-condition: User has downloaded the client
   > Trigger: user clicks the create a profile button or clicks the edit profile button
@@ -67,7 +67,7 @@
       > User is asked to verify their account through password and phone verification
       > User can change their account parameters
 
-4) The website will have verification through phone number 
+## The website will have verification through phone number 
   > Summary: User will be able to log in with security
   > Pre-condition: User must be on log in page
   > Trigger: "Login" button must be clicked
@@ -83,7 +83,7 @@
       > User inputs the incorrect code 
       > Pop-up prompts user "incorrect code, please enter the correct code." 
 
-5) The website will be able to send messages
+## The website will be able to send messages
   > Summary: User will be able to send messages to other users within a chat room
   > Pre-condition: User must be logged in and in a chatspace
   > Trigger: "Send" button must be clicked
@@ -99,7 +99,7 @@
      > System displays error message "Invalid User. Make sure there are no typos!"
      > User adds valid user
 
-6) The website will be able to create/add/remove toDoList
+## The website will be able to create/add/remove toDoList
 > Summary: Users will be able to manage their TODO list by adding, reorganizing, and removing items
 > Pre-condition: User has an account and has opened the TODO list
 > Trigger: User clicks "manage TODO list" button
@@ -116,7 +116,7 @@
       > User attempts to place a task in a time block that is already being used
       > user is prompted to place the task in a different non-overlapping time slot 
 
-8) The website will be able to search for email
+## The website will be able to search for email
 > Summary: Users will be able to search for a desired email
   > Pre-condition: Users must be logged in and in the inbox
   > Trigger: Clicking the "Search" button 
@@ -131,21 +131,19 @@
       > User enters unknown keywords
       > Website displays "No emails matched your search"
       > Website prompts user to re-enter keywords
-9) The website will implement a password requirement
-> Summary: Users must input a password that satisfies the website's password requirement
-  > Pre-condition: Users must be in the "Password Creation" page
-  > Trigger: Inputting the verification code sent to the phone number
+      
+## The website will be able to delete emails
+> Summary: Users will be able to delete any emails they receive
+  > Pre-condition: Users must be logged in and in the inbox
+  > Trigger: Clicking the trash can icon
   > Primary Sequence: 
-      > Website takes user to "Password Creation" page
-      > User inputs password that they want for their email
-      > Website checks if the password satisfies the requirements
-      > Website prompts user to input the password they inputted again
-      > User selects "Welcome"
-  > Primary Post-Conditions: User is now registered and taken to the home page
+      > Website takes user to user's inbox
+      > User selects email they would like to delete
+      > User clicks trash icon on the right-hand side of the email pop-up
+      > Email is deleted, system notifies user that email has been deleted, also shows "UNDO" action
+  > Primary Post-Conditions: Email is now deleted, and user is still in the inbox
   > Alternative Sequence: 
-      > User enters an invalid password
-      > Website displays error message
-      > Website prompts user to re-enter a qualifying password
-      > User enters incorrect password
-      > Website displays error message
-      > Website prompts user to re-enter the same qualifying password
+      > User deletes email by accident
+      > System notifies user of email deletion and also shows "UNDO" action
+      > User clicks "UNDO"
+      > Email is restored 
