@@ -25,19 +25,22 @@ def index():
 
 @myapp_obj.route('/login', methods=['GET', 'POST'])
 def login():
-    phonenumber = request.form.get('phonenumber')
+    username = request.form.get('username')
     password = request.form.get('password')
     remember = True if request.form.get('remember') else False
     
     if request.method == 'POST': 
-        user = User.query.filter_by(phonenumber=phonenumber).first()
+        user = User.query.filter_by(username=username).first()
         
-        if not user: 
-            flash('Not User')
+        if not user and not check_password_hash(user.password, password): 
+            flash('Not User and password')
             return redirect(url_for('login')) 
-        if not check_password_hash(user.password, password):
+        elif not check_password_hash(user.password, password):
             flash('Password issue ')
             return redirect(url_for('login'))
+        elif not user: 
+            flash('Not User')
+            return redirect(url_for('login')) 
         
         login_user(user, remember=remember)
         return redirect(url_for('profile'))
