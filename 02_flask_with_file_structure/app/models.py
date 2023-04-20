@@ -10,7 +10,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(255), nullable=False)
     phonenumber = db.Column(db.String(100), nullable=False)
 
-    posts = db.relationship('Post', backref='author', lazy='dynamic')
+    
 
     def set_password(self, password):
         self.password = generate_password_hash(password)
