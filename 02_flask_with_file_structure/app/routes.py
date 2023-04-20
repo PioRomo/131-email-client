@@ -64,7 +64,7 @@ def register():
     
         try:
             my_number = phonenumbers.parse(phonenumber)
-        except NumberParseException:
+        except:
             flash('Not a valid phone number!')
             return redirect(url_for('register'))
         if user: 
