@@ -53,11 +53,6 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-#register method
-@myapp_obj.route("/register")
-def register():
-    return render_template('register.html')
-
 @myapp_obj.route("/register", methods=['GET', 'POST'])
 def register():
     username = request.form.get('username')
@@ -68,20 +63,20 @@ def register():
         user = User.query.filter_by(phonenumber=phonenumber).first()
     
         my_number = phonenumbers.parse(phonenumber)
-        if phonenumbers.is_valid_number(my_number):
-            if user: 
-                flash('User already exists')
-                return redirect(url_for('register'))
-    
+        if user: 
+            flash('User already exists')
+            return redirect(url_for('register'))
+        
+        elif not phonenumbers.is_valid_number(my_number): 
+            flash('Phone number invalid!')
+            return redirect(url_for('register'))
+            
         new_user = User(phonenumber=phonenumber, name=name, password=generate_password_hash(password, method='sha256'))
         new_user.set_password(new_user.password)
         db.session.add(new_user)
         db.session.commit()
-        flash('Account Created! Please login.')
-        return redirect('/login')
-        else:
-            flash('Invalid phone number!')
-            return redirect(url_for('register'))
+        flash('Redirecting.....')
+        return redirect(url_for('login'))
      
     return render_template('register.html')
    
