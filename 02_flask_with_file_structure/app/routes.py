@@ -76,7 +76,7 @@ def register():
         db.session.add(new_user)
         db.session.commit()
         flash('Redirecting.....')
-        return redirect(url_for('login'))
+        return redirect('/login')
      
     return render_template('register.html')
    
