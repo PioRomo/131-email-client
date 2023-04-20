@@ -1,6 +1,6 @@
----- MEETINGS ----
+# MEETINGS
 
--2023-04-07 10:30 - 13:20
+### 2023-04-07 10:30 - 13:20
  -All members present for meeting
  -Brian has done his two functional requirements
  -Pio has done his two functional requirements
@@ -8,17 +8,23 @@
  -Barak will finish his functional requirements by 2:30 pm 
  -Milestone 1 will be submitted before 4 pm today
 
--2023-04-14 2:00 - 2:30
+## 2023-04-14 2:00 - 2:30
  -All members present for meeting
  -Discussed upcoming weeks plan
  -Agreed at least 3 requirements should be implemented by next meeting 
- -Specific requirements and who does what will be decided as we go 
--2023-04-21 2:00 - 2:30
+ -Brian will handle 3 requirements(8,9,10)
+   - Notifications, archiving emails, attaching images to emails
+ -Jin will handle 3 requirements(3,4,5)
+   -Create and manage a profile, verification through phone number, send messages
+ -Barak will handle 2 requirements(1,6)
+   - send emails, create/add/remove toDO List
+ 
+## 2023-04-21 2:00 - 2:30
 
--2023-04-28 2:00 - 2:30
+## 2023-04-28 2:00 - 2:30
 
--2023-05-05 2:00 - 2:30
+## 2023-05-05 2:00 - 2:30
 
--2023-05-12 2:00 - 2:30
+## 2023-05-12 2:00 - 2:30
 
 
