@@ -7,7 +7,7 @@
 * [The website will be able to create/add/remove To Do List](#the-website-will-be-able-to-create/add/remove-toDoList)
 * [The website will be able to search for emails](#the-website-will-be-able-to-search-for-email)
 * The website will allow users to attach images to emails
-* The website will send users notifications
+* The website will send users notifications after user action
 * The website will allow users to save/archive emails
 * The website will allow users to create a contact Book
 * [The website will allow users to delete emails](#the-website-will-be-able-to-delete-emails)
