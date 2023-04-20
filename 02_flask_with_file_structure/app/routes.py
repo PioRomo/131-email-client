@@ -103,4 +103,4 @@ def delete():
 @myapp_obj.route('/profile')
 @login_required
 def profile():
-    return render_template('profile.html', name=current_user.name)
+    return render_template('profile.html')
