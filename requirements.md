@@ -68,20 +68,22 @@
       > User can change their account parameters
 
 ## The website will have verification through phone number 
-  > Summary: User will be able to log in with security
-  > Pre-condition: User must be on log in page
-  > Trigger: "Login" button must be clicked
+  > Summary: User must have valid US phone number to register
+  > Pre-condition: User must be on registration page, User must have US phone number
+  > Trigger: "Register" button must be clicked
   > Primary Sequence: 
-      > User inputs their login information
-      > User clicks login 
-      > User will get a verication code sent to their phone number
-      > User will enter the verification code and click verify
+      > User inputs their registration information
+      > User clicks register
+      > System will use phonenumbers python package to verify number
+      > System will ensure number is valid 
+      > System registers user and adds user to database
+      > User is redirected to login page
   > Primary Post-Conditions: User is now verified and logged into the website
   > Alternative Sequence: 
-      > User inputs their login information
-      > User clicks login
-      > User inputs the incorrect code 
-      > Pop-up prompts user "incorrect code, please enter the correct code." 
+      > User inputs their registration information
+      > User inputs invalid number and clicks register
+      > System searches for number 
+      > System displays error message and prompts user to re-enter information
 
 ## The website will be able to send messages
   > Summary: User will be able to send messages to other users within a chat room
