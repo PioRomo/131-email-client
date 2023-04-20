@@ -1,6 +1,7 @@
 from flask import render_template, request, redirect, url_for, session, flash
 from .forms import LoginForm
-from app import myapp_obj
+from app import myapp_obj,db
+from app.models import User
 from flask_wtf import FlaskForm
 
 from wtforms import StringField, SubmitField
