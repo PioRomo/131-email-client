@@ -32,10 +32,10 @@ def login():
     if request.method == 'POST': 
         user = User.query.filter_by(username=username).first()
         
-        if not user and not check_password_hash(user.password, password): 
+        if not user and not user.check_password(password): 
             flash('Not User and password')
             return redirect(url_for('login')) 
-        elif not check_password_hash(user.password, password):
+        elif not user.check_password(password):
             flash('Password issue ')
             return redirect(url_for('login'))
         elif not user: 
@@ -78,8 +78,8 @@ def register():
             flash('Phone number invalid!')
             return redirect(url_for('register'))
             
-        new_user = User(phonenumber=phonenumber, username=username, password=generate_password_hash(password, method='sha256'))
-        #new_user.set_password(new_user.password)
+        new_user = User(phonenumber=phonenumber, username=username, password_hash=password)
+        new_user.set_password(new_user.password_hash)
         db.session.add(new_user)
         db.session.commit()
         flash('Redirecting.....')
