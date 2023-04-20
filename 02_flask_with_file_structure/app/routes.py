@@ -38,6 +38,7 @@ def login():
         
         login_user(user, remember=remember)
         return redirect(url_for('profile'))
+    return render_template('login.html')
         
   
 #logout method
@@ -76,7 +77,7 @@ def register():
         db.session.add(new_user)
         db.session.commit()
         flash('Redirecting.....')
-        return redirect('/login')
+        return redirect(url_for('login'))
      
     return render_template('register.html')
    
