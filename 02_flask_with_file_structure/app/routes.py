@@ -26,26 +26,23 @@ def index():
               'book': 'bookname2'}]
     return render_template('hello.html',name=name, books=books)
 
-#login method
-@myapp_obj.route("/login")
+@myapp_obj.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
-
-@myapp_obj.route('/login', methods=['POST'])
-def login_post():
-    email = request.form.get('email')
+    username = request.form.get('username')
     password = request.form.get('password')
     remember = True if request.form.get('remember') else False
-
-    user = User.query.filter_by(phonenumber=phonenumber).first()
-
-    if not user or not check_password_hash(user.password, password):
-        flash('Please check your login details and try again.')
-        return redirect(url_for('login')) 
-
-    login_user(user, remember=remember)
-    return redirect(url_for('profile'))
- 
+    
+    if request.method == 'POST': 
+        user = User.query.filter_by(phonenumber=phonenumber).first()
+        
+        if not user or not check_password_hash(user.password, password):
+            flash('Please check your login details and try again.')
+            return redirect(url_for('login')) 
+        
+        login_user(user, remember=remember)
+        return redirect(url_for('profile'))
+        
+  
 #logout method
 @myapp_obj.route("/logout")
 @login_required
@@ -63,7 +60,8 @@ def register():
         user = User.query.filter_by(phonenumber=phonenumber).first()
     
         try:
-            my_number = phonenumbers.parse(phonenumber)
+            raw_number = phonenumbers.parse(phonenumber)
+            my_number = "1+" + raw_number
         except:
             flash('Not a valid phone number!')
             return redirect(url_for('register'))
@@ -75,7 +73,7 @@ def register():
             flash('Phone number invalid!')
             return redirect(url_for('register'))
             
-        new_user = User(phonenumber=phonenumber, name=name, password=generate_password_hash(password, method='sha256'))
+        new_user = User(phonenumber=phonenumber, username=username, password=generate_password_hash(password, method='sha256'))
         new_user.set_password(new_user.password)
         db.session.add(new_user)
         db.session.commit()
@@ -89,7 +87,15 @@ def register():
 @myapp_obj.route('/deleteAccount', methods=['GET', 'POST'])
 @login_required
 def delete():
-    current_user.remove()
+   if request.method == 'POST': 
+        user = User.query.filter_by(phonenumber=phonenumber).first()
+        db.session.delete(user)
+        db.session.commit()
+        return redirect(url_for('login'))
+    return render_template('profile.html')
+
+
+current_user.remove()
     db.session.commit()
     flash('You are no longer exist')
     return render_template('deleteAccount.html')
