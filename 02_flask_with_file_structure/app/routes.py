@@ -32,15 +32,9 @@ def login():
     if request.method == 'POST': 
         user = User.query.filter_by(username=username).first()
         
-        if not user and not check_password_hash(user.password, password): 
-            flash('Not User and password')
-            return redirect(url_for('login')) 
-        elif not check_password_hash(user.password, password):
-            flash('Password issue' + 'password: ' + password + 'user.password: ' +  user.password)
+        if not user or not check_password_hash(user.password, password):
+            flash('Please check your login details and try again.')
             return redirect(url_for('login'))
-        elif not user: 
-            flash('Not User')
-            return redirect(url_for('login')) 
         
         login_user(user, remember=remember)
         return redirect(url_for('profile'))
