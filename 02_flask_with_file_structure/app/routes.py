@@ -87,7 +87,7 @@ def register():
 @login_required
 def delete():
    if request.method == 'POST': 
-        user = User.query.filter_by(phonenumber=phonenumber).first()
+        user = User.query.filter_by(phonenumber= current_user.phonenumber).first()
         db.session.delete(user)
         db.session.commit()
         return redirect(url_for('login'))
