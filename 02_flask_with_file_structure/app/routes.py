@@ -36,7 +36,8 @@ def login():
             flash('Not User and password')
             return redirect(url_for('login')) 
         elif not user.check_password(password):
-            flash('Password issue ')
+            
+            flash('Password issue' + password + user.password)
             return redirect(url_for('login'))
         elif not user: 
             flash('Not User')
