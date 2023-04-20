@@ -62,7 +62,11 @@ def register():
     if request.method == 'POST': 
         user = User.query.filter_by(phonenumber=phonenumber).first()
     
-        my_number = phonenumbers.parse(phonenumber)
+        try:
+            my_number = phonenumbers.parse(phonenumber)
+        except NumberParseException:
+            flash('Not a valid phone number!')
+            return redirect(url_for('register'))
         if user: 
             flash('User already exists')
             return redirect(url_for('register'))
