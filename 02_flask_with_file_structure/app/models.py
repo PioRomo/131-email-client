@@ -33,5 +33,16 @@ class Post(db.Model):
 
     def __repr__(self):
         return f'<Post {self.id}: {self.body}>'
+    
+class Message(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    subject = db.Column(db.varchar2(100))
+    creator_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
+    parent_message_id = db.Column(db.Integer(), nullable=True, db.ForeignKey('message.id') )
+    message_body  = db.Column(db.clob)
+    create_date = db.Column(db.Integer(), default=datetime.utcnow)
+    
+    def __repr__(self):
+        return f'<Message {self.id}: {self.message_body}>'
 
 
