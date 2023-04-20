@@ -78,8 +78,8 @@ def register():
             flash('Phone number invalid!')
             return redirect(url_for('register'))
             
-        new_user = User(phonenumber=phonenumber, username=username, password_hash=password)
-        new_user.set_password(new_user.password_hash)
+        new_user = User(phonenumber=phonenumber, username=username, password=password)
+       #new_user.set_password(new_user.password)
         db.session.add(new_user)
         db.session.commit()
         flash('Redirecting.....')
