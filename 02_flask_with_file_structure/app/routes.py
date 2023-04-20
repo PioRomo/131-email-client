@@ -94,12 +94,6 @@ def delete():
         return redirect(url_for('login'))
     return render_template('profile.html')
 
-
-current_user.remove()
-    db.session.commit()
-    flash('You are no longer exist')
-    return render_template('deleteAccount.html')
-
 @myapp_obj.route('/profile')
 @login_required
 def profile():
