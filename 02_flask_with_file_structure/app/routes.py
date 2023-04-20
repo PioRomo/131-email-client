@@ -56,8 +56,9 @@ def register():
         user = User.query.filter_by(phonenumber=phonenumber).first()
     
         try:
-            raw_number = phonenumbers.parse(phonenumber)
-            my_number = "+1" + raw_number
+            us_number = "+1" + phonenumber
+            my_number = phonenumbers.parse(us_number)
+            
         except:
             flash('Not a valid phone number!')
             return redirect(url_for('register'))
