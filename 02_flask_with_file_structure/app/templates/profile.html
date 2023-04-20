@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 
-{% block content %}
+{% block page %}
+<div id = "profile pic">
+  <img src = "https://www.pngall.com/wp-content/uploads/5/Profile-Male-PNG.png"> 
+  <h2>My Profile</h2>
+</div>
 <p>User name: {{name}} </p>
 <a href="{{url_for('deleteAccount')}}">Delete Account? </a>
 {% endblock %}
