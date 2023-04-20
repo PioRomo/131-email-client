@@ -10,11 +10,7 @@ import phonenumbers
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from flask_login import current_user
-from flask_login import login_user
-from flask_login import logout_user
-from flask_login import login_required
-
+from flask_login import current_user, login_user, logout_user, login_required
 
 @myapp_obj.route("/")
 @myapp_obj.route("/index.html")           
@@ -61,7 +57,7 @@ def register():
     
         try:
             raw_number = phonenumbers.parse(phonenumber)
-            my_number = "1+" + raw_number
+            my_number = "+1" + raw_number
         except:
             flash('Not a valid phone number!')
             return redirect(url_for('register'))
