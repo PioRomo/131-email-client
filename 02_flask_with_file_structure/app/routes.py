@@ -92,7 +92,8 @@ def delete():
         db.session.delete(user)
         db.session.commit()
         return redirect(url_for('login'))
-    return render_template('profile.html')
+    
+   return render_template('profile.html')
 
 @myapp_obj.route('/profile')
 @login_required
