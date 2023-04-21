@@ -4,26 +4,42 @@ body{
   color:white; 
 }
 
-#nav{
-  background-color: #fad75a;
-  overflow:hidden; 
-  list-style-type: none; 
-  width:100%; 
-  margin:0px; 
-  padding:10px; 
-  position:fixed;  
-}
-
-#main{
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f0ca62;
   
 }
 
-#nav a{
-  margin-left:10px;
-  padding:5 px; 
-  text-align: right; 
+li{
+  float:left; 
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover{
+  animation: hoverColor 3s infinite; 
+}
+
+@keyframes hoverColor{
+   0% { color: #f08989; }
+  20% { color: #ffcc7a; }
+  40% { color: #f0ca62; }
+  60% {color: #91ffa0;}
+  80% {color: #a8beed;}
+  100% {color: #fc96ff}
+  
 }
 
 .active{
-  background-color: #7a7667; 
+  background-color:#968808; 
 }
+
