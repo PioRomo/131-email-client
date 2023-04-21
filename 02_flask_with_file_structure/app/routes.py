@@ -14,7 +14,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user, login_user, logout_user, login_required
 
 @myapp_obj.route("/")
-@myapp_obj.route("/hello.html")           
+@myapp_obj.route('/hello')           
 def hello():
     return render_template('hello.html')
 
