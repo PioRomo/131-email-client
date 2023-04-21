@@ -37,7 +37,7 @@ class Post(db.Model):
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     creator_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
-    recipient_id =  db.Column(db.Integer(), db.ForeignKey('user.id')
+    recipient_id =  db.Column(db.Integer(), db.ForeignKey('user.id'))
     message_body  = db.Column(db.String(255))
     create_date = db.Column(db.Integer(), default=datetime.utcnow)
     
