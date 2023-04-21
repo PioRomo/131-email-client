@@ -36,10 +36,9 @@ class Post(db.Model):
     
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    subject = db.Column(db.varchar2(100))
     creator_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
-    parent_message_id = db.Column(db.Integer(), nullable=True, db.ForeignKey('message.id') )
-    message_body  = db.Column(db.clob)
+    recipient_id =  db.Column(db.Integer(), db.ForeignKey('user.id')
+    message_body  = db.Column(db.String(255))
     create_date = db.Column(db.Integer(), default=datetime.utcnow)
     
     def __repr__(self):
