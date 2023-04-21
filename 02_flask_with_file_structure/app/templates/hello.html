@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-        <h1 id = "Welcome">Welcome, {{name}} !</h1>
-        {% for i in books %}
-        <ul>
-            <li><p>{{i.author}}: {{i.book}}</p></li>
-        </ul>
+        <h1 id = "welcome">Welcome to BeeMail</h1>
+        <h4><em>The Beesus of all Email Clients</em></h4>
+        <div id = "bee-div">
+           <img id = "bee-pic" src = "https://www.creativefabrica.com/wp-content/uploads/2021/05/07/bee-logo-Graphics-11813184-2-580x387.png" alt = "beesus christ">
+        </div> 
+        <h4>About Us, The Founders</h4>
+        <p id = "about-us">Pio, Jin, Brian, Barak. Maybe you've seen them in Forbes 30 under 30. These
+                 innovative tech CEO's are now proud owners of a Fortune 500 company. It's 
+                 no wonder Google bought us out for 10 zillion Dogecoin. 
+        </p>
         {% endfor %}
 {% endblock %}
