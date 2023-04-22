@@ -32,6 +32,9 @@
   * Jin has started working on implenmenting his features and should be finished by sunday. 
     * Creating a profile, managing a profile, and sending messages will all be implemented by sunday.
     * For this upcoming week, check for any errors that occurs when running the program and making sure everyone has finished implementing.
+  * Bryan has starting working on implementing his features and should be finished by monday
+    * Notifications, archiving emails, attaching images to emails are somewhat reliant on Barak's part of sending emails so I'm waiting on him for his implementation to match his format
+    * This upcoming week, work with Barak's code to implement my part and check for any errors within mine and Barak's part 
 
 ## 2023-04-28 2:00 - 2:30
 
