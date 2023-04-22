@@ -28,8 +28,7 @@
   * Must have all requirements set for next week's deadline
   * Pio has finished implementation of his features
     * Registration, login, logout, delete account are all implemented and ready to go
-    * This upcoming week: improve features(maybe add password criteria?) and add comments
-  *
+    * This upcoming week: improve features(maybe add password criteria?), add comments, and add other features
 
 ## 2023-04-28 2:00 - 2:30
 
