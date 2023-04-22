@@ -29,6 +29,9 @@
   * Pio has finished implementation of his features
     * Registration, login, logout, delete account are all implemented and ready to go
     * This upcoming week: improve features(maybe add password criteria?), add comments, and add other features
+  * Jin has started working on implenmenting his features and should be finished by sunday. 
+    * Creating a profile, managing a profile, and sending messages will all be implemented by sunday.
+    * For this upcoming week, check for any errors that occurs when running the program and making sure everyone has finished implementing.
 
 ## 2023-04-28 2:00 - 2:30
 
