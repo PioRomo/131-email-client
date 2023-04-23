@@ -9,7 +9,8 @@
   sure to help each other out when needed. And of course, we must be able to do so on our own. Obviously we may refer to the class material for help, and 
   sometimes we may feel the need to ask internet forums. But as professionals, we will never plagiarize someone else’s code in any manner. To do so would 
   breach the very ethical professionalism we stand for. 
-    Engineering solutions to problems, such as our problem of creating a web app, come in many sizes. Some big and some small. The impact, however, can 
+  
+   Engineering solutions to problems, such as our problem of creating a web app, come in many sizes. Some big and some small. The impact, however, can 
   sometimes be impossible to measure. Our project will most likely have little impact in terms of the global scale, but there are many engineering 
   solutions who seem to have surpassed such a scale. Many engineering solutions throughout time have made impacts in all kinds of aspects - economical, 
   environmental, and societal- that have changed the world we live in, for better or worse. Some solutions improve societies and sometimes society as a 
@@ -19,5 +20,6 @@
   burden.  And environmental impacts? I could write a 100-page essay about every single one. But for fun, I’ll name two: solar panels and gas-powered 
   cars. Solar panels provide millions of homes with energy and electricity, harnessing energy from the sun without harming our planet. Gas-powered cars 
   on the other hand, have done detrimental damage to our home, despite the positive effects it has created for our society as means of transportation. 
-     To summarize, engineering solutions can have positive and negative impacts on our world. Such solutions adhere to professional and ethical 
+    
+   To summarize, engineering solutions can have positive and negative impacts on our world. Such solutions adhere to professional and ethical 
   responsiblities. Therefore, as engineers ourselves, we must adhere to the same criteria. 
