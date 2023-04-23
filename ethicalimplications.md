@@ -1,6 +1,6 @@
 # ETHICAL IMPLICATIONS
 
-    As engineers, and just as importantly, as professionals, we have an obligation to adhere to our responsibilities. In addition, we must ensure that we do 
+   As engineers, and just as importantly, as professionals, we have an obligation to adhere to our responsibilities. In addition, we must ensure that we do 
   so in an ethical manner. This applies to all engineering projects within all engineering groups within all engineering companies within all engineering 
   fields. This of course includes our little group of software and electrical engineers within our little CMPE 131 class. For this project, we will be 
   constructing a simple email client capable of sending messages and having a to-do list. For our web application, we each have a set of responsibilities. 
