@@ -66,6 +66,13 @@ def register():
         elif not phonenumbers.is_valid_number(my_number): 
             flash('Phone number invalid!')
             return redirect(url_for('register'))
+        
+        if len(password) < 8 or len(password) > 20: 
+            flash('Password must be at least 8 characters and no more than 20')
+            return redirect(url_for('register'))
+        elif not any (char.isdigit() for char in password):
+            flash('Password must have one number')
+            return redirect(url_for('register'))
             
         new_user = User(phonenumber=phonenumber, username=username, password=generate_password_hash(password, method='sha256'))
        #new_user.set_password(new_user.password)
