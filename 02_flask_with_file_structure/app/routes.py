@@ -25,8 +25,10 @@ def login():
     remember = True if request.form.get('remember') else False
     
     if request.method == 'POST': 
+        #Again find user
         user = User.query.filter_by(username=username).first()
         
+        #Either user doesn't exists or password is wrong
         if not user or not check_password_hash(user.password, password):
             flash('Please check your login details and try again.')
             return redirect(url_for('login'))
@@ -43,15 +45,18 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
+
 @myapp_obj.route("/register", methods=['GET', 'POST'])
 def register():
     username = request.form.get('username')
     password = request.form.get('password')
     phonenumber = request.form.get('phonenumber')
     
+    #Check if user already exists by searching for phonenumber
     if request.method == 'POST': 
         user = User.query.filter_by(phonenumber=phonenumber).first()
-    
+        
+        #Parse through a phone number;NOTE this only US phone numbers are valid
         try:
             us_number = "+1" + phonenumber
             my_number = phonenumbers.parse(us_number)
@@ -59,17 +64,19 @@ def register():
         except:
             flash('Not a valid phone number!')
             return redirect(url_for('register'))
+        #If the user already exists
         if user: 
             flash('User already exists')
             return redirect(url_for('register'))
-        
+        #else if the phonenumber is invalid
         elif not phonenumbers.is_valid_number(my_number): 
             flash('Phone number invalid!')
             return redirect(url_for('register'))
-        
+        #Check the length of password 
         if len(password) < 8 or len(password) > 20: 
             flash('Password must be at least 8 characters and no more than 20')
             return redirect(url_for('register'))
+        #Must have at least one number 
         elif not any (char.isdigit() for char in password):
             flash('Password must have one number')
             return redirect(url_for('register'))
@@ -78,7 +85,6 @@ def register():
        #new_user.set_password(new_user.password)
         db.session.add(new_user)
         db.session.commit()
-        flash('Redirecting.....')
         return redirect(url_for('login'))
      
     return render_template('register.html')
@@ -89,6 +95,7 @@ def register():
 @login_required
 def delete():
    if request.method == 'POST': 
+        #Fetch current user and delete from database
         user = User.query.filter_by(phonenumber= current_user.phonenumber).first()
         db.session.delete(user)
         db.session.commit()
