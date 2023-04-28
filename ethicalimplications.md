@@ -4,11 +4,12 @@
   so in an ethical manner. This applies to all engineering projects within all engineering groups within all engineering companies within all engineering 
   fields. This of course includes our little group of software and electrical engineers within our little CMPE 131 class. For this project, we will be 
   constructing a simple email client capable of sending messages and having a to-do list. For our web application, we each have a set of responsibilities. 
-  As professionals, it is our duty to satisfy these tasks ethically. We must construct a functional web application capable of carrying out its functional 
-  and non-functional requirements in a reasonable time. We must work together to ensure our final product is satisfactory, and nothing less. We must make 
-  sure to help each other out when needed. And of course, we must be able to do so on our own. Obviously we may refer to the class material for help, and 
-  sometimes we may feel the need to ask internet forums. But as professionals, we will never plagiarize someone else’s code in any manner. To do so would 
-  breach the very ethical professionalism we stand for. 
+  As professionals, it is our duty to satisfy these tasks ethically. An example of an ethical responsibility for our web application would be ensuring that
+  our users' information such as the username and password does not get leaked within our web application. Additionally, we must construct a functional web    
+  application capable of carrying out its functional and non-functional requirements in a reasonable time. We must work together to  ensure our final product is    
+  satisfactory, and nothing less. We must make sure to help each other out when needed. And of course, we must be able to do so on our own. Obviously we may
+  refer to the  class material for help, and sometimes we may feel the need to ask internet forums. But as professionals, we will never plagiarize someone 
+  else’s code in any manner. To do so would breach the very ethical professionalism we stand for. 
   
    Engineering solutions to problems, such as our problem of creating a web app, come in many sizes. Some big and some small. The impact, however, can 
   sometimes be impossible to measure. Our project will most likely have little impact in terms of the global scale, but there are many engineering 
