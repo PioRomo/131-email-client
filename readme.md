@@ -88,11 +88,13 @@ Want to try it out for yourself? Follow these instructions:
    > Note: Missing libraries but not sure how to install them? Simply google "python" and followed by the name of the library. 
 4) Once you have all libraries installed, you should be ready to run the project. Make sure you are in the proper directory and type `flask run` into the terminal.
 5) You know the app is running correctly if you see something like this in the terminal: 
-   ` * Debug mode: off
-     WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+    ```
+     * Debug mode: off
+       WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
      * Running on http://127.0.0.1:5000
-      Press CTRL+C to quit
-   `
+     Press CTRL+C to quit
+    
+    ```   
 6) Copy the url link and paste into your browser. You are now free to register, login, logout, delete your account, and of course, send emails! Enjoy! 
 
 
