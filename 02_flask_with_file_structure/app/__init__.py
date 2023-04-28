@@ -7,7 +7,7 @@ from flask_login import LoginManager
 myapp_obj = Flask(__name__)
 
 photos = UploadSet('photos', IMAGES)
-configure_uploads(app, photos)
+configure_uploads(myapp_obj, photos)
 
 
 basedir = os.path.abspath(os.path.dirname(__file__))
