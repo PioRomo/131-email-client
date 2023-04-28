@@ -49,26 +49,29 @@ Thien Bryan Nguyen
 - Python3 - version 3.10.0
 - Flask, SQLite3, HTML, CSS 
 - Complete Library: 
-     click             8.1.3
-     Flask             2.2.3
-     Flask-Login       0.6.2
-     Flask-Reuploaded  1.3.0
-     Flask-SQLAlchemy  3.0.3
-     Flask-Uploads     0.2.1
-     Flask-WTF         1.1.1
-     greenlet          2.0.2
-     itsdangerous      2.1.2
-     Jinja2            3.1.2
-     MarkupSafe        2.1.2
-     phonenumbers      8.13.9
-     pip               23.1
-     pysqlite3         0.5.0
-     setuptools        67.2.0
-     SQLAlchemy        2.0.4
-     typing_extensions 4.5.0
-     Werkzeug          2.2.3
-     wheel             0.38.4
-     WTForms           3.0.1
+     | Library | Version | 
+     |---------|---------|
+     | click        | 8.1.3      |
+     | Flask      | 2.2.3     |
+     | Flask-Login        | 0.6.2        |
+     | Flask-Reuploaded        | 1.3.0        |
+     | Flask-SQLAlchemy        | 3.0.3        |
+     | Flask-Uploads        | 0.2.1        |
+     | Flask-WTF         | 1.1.1        |
+     | greenlet        | 2.0.2         |
+     | itsdangerous         | 2.1.2         |
+     | Jinja2        | 3.1.2        |
+     | MarkupSafe         | 2.1.2         |
+     | phonenumbers         | 8.13.9         |
+     | pip         | 23.1       |
+     | pysqlite3           | 0.5.0        |
+     | setuptools           | 67.2.0        |
+     | SQLAlchemy            | 2.0.4       |
+     | typing_extensions           | 4.5.0        |
+     | Werkzeug            | 2.2.3        |
+     | wheel           | 0.38.4         |
+     | WTForms          | 3.0.1        |
+     
 
 
 
@@ -85,7 +88,7 @@ Want to try it out for yourself? Follow these instructions:
 2) Then, use the `git clone` command. You can go ahead and copy-paste this into the terminal: `git clone https://github.com/PioRomo/131-email-client.git`
    > Note: Ensure you're logged into GitHub before completing this step. 
 3) You now have a cloned repository! Make sure your computer has all the proper libraries to run the project. You can check which python libraries are on your computer by using the `pip3 list` command for python3, or `pip list` for just python. Refer to the complete list of libraries above. 
-   > Note: Missing libraries but not sure how to install them? Simply google "python" and followed by the name of the library. 
+   > Note: Missing libraries but not sure how to install them? Simply google "python" followed by the name of the library. 
 4) Once you have all libraries installed, you should be ready to run the project. Make sure you are in the proper directory and type `flask run` into the terminal.
 5) You know the app is running correctly if you see something like this in the terminal: 
     ```
