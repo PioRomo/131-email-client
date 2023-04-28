@@ -53,19 +53,19 @@
    
   ## The website will allow you to create a profile and manage it 
   > Summary: User will be able to create a profile and change it 
-  > Pre-condition: User has downloaded the client
-  > Trigger: user clicks the create a profile button or clicks the edit profile button
+  > Pre-condition: User must be logged in
+  > Trigger: user clicks the edit profile button
   > Primary Sequence:
-      > User enters their name
-      > User selects a profile icon
-      > User creates an email address
-      > User enters their phone number
-      > User is asked to verify their phone number
-  > Primary Post-Condition: User now has an account that can be used to have access to the client and contact others
+      > User logs in/registers for an account 
+      > User navigates to profile screen
+      > User clicks "change profile" icon
+      > User uploads a new photo
+      > User clicks "upload"
+  > Primary Post-Condition: User now has an updated profile
   > Alternative Sequence: 
-      > User is prompted to edit a profile parameter
-      > User is asked to verify their account through password and phone verification
-      > User can change their account parameters
+      > User is prompted to edit profile picture 
+      > User uploads a non-image file 
+      > System prompts user to upload valid file
 
 ## The website will have verification through phone number 
   > Summary: User must have valid US phone number to register
