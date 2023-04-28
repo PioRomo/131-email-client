@@ -10,6 +10,7 @@ CMPE131 Email Client Project
 
 ## Table of Contents
 * [Introduction](#introduction)
+* [Responsibilities](#responsibilities)
 * [Technologies Used](#technologies-used)
 * [Screenshots](#screenshots)
 * [Setup](#setup)
@@ -18,6 +19,19 @@ CMPE131 Email Client Project
 
 ## Introduction
 Email client web application for CMPE 131. With this web app, users will be able to register, login/logout, delete their account, as well as send messages to other users. 
+
+## Responsibilities
+Pio Romo
+ * Login
+ * Logout
+ * Registering for the website
+ * Deleting account
+Barak Kaufman
+ * Sending email
+Jin Chen
+ * Profile Management
+Thien Bryan Nguyen
+ * Search Bar
 
 
 ## Technologies Used
