@@ -108,27 +108,12 @@ def delete():
 @myapp_obj.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
-    user = User.query.filter_by(phonenumber=current_user.phonenumber).first()
-    if request.method == 'POST' and 'photo' in request.files:
-        cur = db.session.cursor()
-        cur.execute('SELECT id FROM members WHERE email = %s', email)
-        member = cur.fetchone()
-        (id, *others) = member
-        
-        profilepic_name = str(id)+'.png'
-        profilepic_url = '/static/images/profiles/'+profilepic_name
-        workingdir = os.path.abspath(os.getcwd())
-        fullprofilepic_url = workingdir + profilepic_url
-        
-        if os.path.isfile(fullprofilepic_url) == True:
-            os.remove(fullprofilepic_url)
-        
-        photos.save(request.files['photo'], folder=None, name=profilepic_name)
-        flash("Success! Profile photo uploaded successfully.", 'success')
-        
-        cur = db.session.cursor()
-        cur.execute('UPDATE members SET pic_url = %s WHERE email = %s', (profilepic_url, email))
-        db.session.commit()
-        cur.close()
-        
-    return render_template('profile.html', user=user)
+    form = UploadForm()
+    if form.validate_on_submit():
+        for f in request.files.getlist('photo'):
+            filename = uuid.uuid4().hex
+            photos.save(f, name=filename + '.')
+        success = True
+    else:
+        success = False
+    return render_template('profile.html', form=form, success=sucess)
