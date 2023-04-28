@@ -2,15 +2,6 @@
 
 {% block page %}
 
-<div class="pfp-form">
-   <form role="form" action="/profile" method="post" enctype=multipart/form-data>
-   <img src="{{photo_location}}" alt="profile-pic">
-   <label class="custom-file">
-       <input type="file" name="photo">
-       <span>Choose File</span>
-    </label>
-    <button type="submit" >Upload Photo</button>
-        </div>
 <p>User name: {{name}} </p>
 <a href="{{url_for('delete')}}">Delete Account? </a>
 {% endblock %}
