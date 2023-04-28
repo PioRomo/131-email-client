@@ -40,6 +40,13 @@
     * For this week - update user parameters to work in the email system such as recieved, sent, and trashed
 
 ## 2023-04-28 2:00 - 2:30
+  * Bryan and Barak present
+  * New requirements were assigned in terms of importance
+    * Pio worked on registration, login, logout, delete account which were already implemented
+    * Bryan worked on a search bar which is implemented, but results in no search as there is no emails to search keywords from
+    * Jin worked on profile management which is implemented
+    * Barak is working on sending email. He got majority of it completed, but figuring out how to get the email to enter another user's inbox
+  * This upcoming week, we will work on another four functional requirement, which our main ones would be creating a to-do list and making a chat box
 
 ## 2023-05-05 2:00 - 2:30
 
