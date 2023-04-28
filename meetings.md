@@ -42,7 +42,7 @@
 ## 2023-04-28 2:00 - 2:30
   * Bryan and Barak present
   * New requirements were assigned in terms of importance
-    * Pio worked on registration, login, logout, delete account which were already implemented
+    * Pio has already finished all features. Added comments to routes, wrote ethical implications file and finished the readme file. 
     * Bryan worked on a search bar which is implemented, but results in no search as there is no emails to search keywords from
     * Jin worked on profile management which is implemented
     * Barak is working on sending email. He got majority of it completed, but figuring out how to get the email to enter another user's inbox
