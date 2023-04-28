@@ -1,10 +1,7 @@
 {% extends "base.html" %}
 
 {% block page %}
-<div id = "profile pic">
-  <img src = "https://www.pngall.com/wp-content/uploads/5/Profile-Male-PNG.png"> 
-  <h2>My Profile</h2>
-</div>
+
 <div class="pfp-form">
    <form role="form" action="/profile" method="post" enctype=multipart/form-data>
    <img src="{{photo_location}}" alt="profile-pic">
