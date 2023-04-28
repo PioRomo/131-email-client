@@ -103,7 +103,18 @@ def delete():
     
    return render_template('deleteAccount.html')
 
-@myapp_obj.route('/profile')
+@myapp_obj.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
-    return render_template('profile.html')
+    user = User.query.filter_by(phonenumber=current_user.phonenumber).first()
+    if request.method == 'POST':
+        profile_icon = request.files['profile_icon']
+        if profile_icon:
+            # Save the uploaded file to the filesystem
+            profile_icon.save(os.path.join(myapp_obj.config['UPLOAD_FOLDER'], profile_icon.filename))
+            # Update the user's profile icon in the database
+            user.profile_icon = profile_icon.filename
+            db.session.commit()
+            flash('Profile icon updated successfully.')
+            return redirect(url_for('profile'))
+    return render_template('profile.html', user=user)
