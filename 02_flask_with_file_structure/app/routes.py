@@ -108,7 +108,7 @@ def delete():
 def profile():
     user = User.query.filter_by(phonenumber=current_user.phonenumber).first()
     if request.method == 'POST' and 'photo' in request.files:
-        cur = dbconnection.cursor()
+        cur = db.session.cursor()
         cur.execute('SELECT id FROM members WHERE email = %s', email)
         member = cur.fetchone()
         (id, *others) = member
@@ -124,9 +124,9 @@ def profile():
         photos.save(request.files['photo'], folder=None, name=profilepic_name)
         flash("Success! Profile photo uploaded successfully.", 'success')
         
-        cur = dbconnection.cursor()
+        cur = db.session.cursor()
         cur.execute('UPDATE members SET pic_url = %s WHERE email = %s', (profilepic_url, email))
-        dbconnection.commit()
+        db.session.commit()
         cur.close()
         
     return render_template('profile.html', user=user)
