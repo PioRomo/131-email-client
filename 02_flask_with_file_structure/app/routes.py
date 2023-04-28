@@ -107,14 +107,26 @@ def delete():
 @login_required
 def profile():
     user = User.query.filter_by(phonenumber=current_user.phonenumber).first()
-    if request.method == 'POST':
-        profile_icon = request.files['profile_icon']
-        if profile_icon:
-            # Save the uploaded file to the filesystem
-            profile_icon.save(os.path.join(myapp_obj.config['UPLOAD_FOLDER'], profile_icon.filename))
-            # Update the user's profile icon in the database
-            user.profile_icon = profile_icon.filename
-            db.session.commit()
-            flash('Profile icon updated successfully.')
-            return redirect(url_for('profile'))
+    if request.method == 'POST' and 'photo' in request.files:
+        cur = dbconnection.cursor()
+        cur.execute('SELECT id FROM members WHERE email = %s', email)
+        member = cur.fetchone()
+        (id, *others) = member
+        
+        profilepic_name = str(id)+'.png'
+        profilepic_url = '/static/images/profiles/'+profilepic_name
+        workingdir = os.path.abspath(os.getcwd())
+        fullprofilepic_url = workingdir + profilepic_url
+        
+        if os.path.isfile(fullprofilepic_url) == True:
+            os.remove(fullprofilepic_url)
+        
+        photos.save(request.files['photo'], folder=None, name=profilepic_name)
+        flash("Success! Profile photo uploaded successfully.", 'success')
+        
+        cur = dbconnection.cursor()
+        cur.execute('UPDATE members SET pic_url = %s WHERE email = %s', (profilepic_url, email))
+        dbconnection.commit()
+        cur.close()
+        
     return render_template('profile.html', user=user)
