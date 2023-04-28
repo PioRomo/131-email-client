@@ -26,13 +26,10 @@ Pio Romo
  * Logout
  * Registering for the website
  * Deleting account
-
 Barak Kaufman
  * Sending email
-
 Jin Chen
  * Profile Management
-
 Thien Bryan Nguyen
  * Search Bar
 
