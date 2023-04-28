@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-from flask_uploads import UploadSet, configure_uploads, IMAGES, patch_request_class
+from flask_uploads import UploadSet, configure_uploads, IMAGES
 import os
 from flask_login import LoginManager
 
@@ -8,7 +8,7 @@ myapp_obj = Flask(__name__)
 
 photos = UploadSet('photos', IMAGES)
 configure_uploads(app, photos)
-patch_request_class(app)
+
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
