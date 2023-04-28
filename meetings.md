@@ -47,6 +47,7 @@
     * Jin worked on profile management which is implemented
     * Barak is working on sending email. He got majority of it completed, but figuring out how to get the email to enter another user's inbox
   * This upcoming week, we will work on another four functional requirement, which our main ones would be creating a to-do list and making a chat box
+  * Milestone 2 will be submitted before 11:59 PM tonight
 
 ## 2023-05-05 2:00 - 2:30
 
