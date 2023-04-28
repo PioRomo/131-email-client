@@ -8,7 +8,7 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, ValidationError
 import phonenumbers
 import uuid
-import Flask-Reuploaded
+
 
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
