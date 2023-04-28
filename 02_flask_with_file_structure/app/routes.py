@@ -108,12 +108,14 @@ def delete():
 @myapp_obj.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
-    form = UploadForm()
-    if form.validate_on_submit():
-        for f in request.files.getlist('photo'):
-            filename = uuid.uuid4().hex
-            photos.save(f, name=filename + '.')
-        success = True
-    else:
-        success = False
-    return render_template('profile.html', form=form, success=sucess)
+     user = User.query.filter_by(phonenumber=current_user.phonenumber).first()
+    if request.method == 'POST':
+        profile_icon = request.files['profile_icon']
+        if profile_icon:
+            # Save the uploaded file to the filesystem
+            profile_icon.save(os.path.join(myapp_obj.config['UPLOAD_FOLDER'], profile_icon.filename))
+            # Update the user's profile icon in the database
+            user.profile_icon = profile_icon.filename
+            db.session.commit()
+            flash('Profile icon updated successfully.')
+            return redirect(url_for('profile'))
