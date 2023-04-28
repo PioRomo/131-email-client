@@ -120,3 +120,8 @@ def profile():
             flash('Profile icon updated successfully.')
             return redirect(url_for('profile'))
     return render_template('profile.html')
+
+@myapp_obj.route('/inbox')
+@login_required
+def inbox(): 
+    return render_template('inbox.html') 
