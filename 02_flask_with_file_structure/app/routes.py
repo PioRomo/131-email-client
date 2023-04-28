@@ -108,7 +108,7 @@ def delete():
 @myapp_obj.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
-     user = User.query.filter_by(phonenumber=current_user.phonenumber).first()
+    user = User.query.filter_by(phonenumber=current_user.phonenumber).first()
     if request.method == 'POST':
         profile_icon = request.files['profile_icon']
         if profile_icon:
