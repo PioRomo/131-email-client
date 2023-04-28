@@ -13,9 +13,7 @@ CMPE131 Email Client Project
 * [Requirements](#requirements)
 * [Responsibilities](#responsibilities)
 * [Technologies Used](#technologies-used)
-* [Screenshots](#screenshots)
 * [Setup](#setup)
-* [Usage](#usage)
 
 
 ## Introduction
@@ -48,27 +46,56 @@ Thien Bryan Nguyen
 
 
 ## Technologies Used
-- Tech 1 - version 1.0
-- Tech 2 - version 2.0
-- Tech 3 - version 3.0
+- Python3 - version 3.10.0
+- Flask, SQLite3, HTML, CSS 
+- Complete Library: 
+     click             8.1.3
+     Flask             2.2.3
+     Flask-Login       0.6.2
+     Flask-Reuploaded  1.3.0
+     Flask-SQLAlchemy  3.0.3
+     Flask-Uploads     0.2.1
+     Flask-WTF         1.1.1
+     greenlet          2.0.2
+     itsdangerous      2.1.2
+     Jinja2            3.1.2
+     MarkupSafe        2.1.2
+     phonenumbers      8.13.9
+     pip               23.1
+     pysqlite3         0.5.0
+     setuptools        67.2.0
+     SQLAlchemy        2.0.4
+     typing_extensions 4.5.0
+     Werkzeug          2.2.3
+     wheel             0.38.4
+     WTForms           3.0.1
 
-
-## Screenshots
-![Example screenshot](./img/screenshot.png)
-<!-- If you have screenshots you'd like to share, include them here. -->
 
 
 ## Setup
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
+
+For this project, we had four main requirements. The app needed to be able to support registration, login, logout, and deleting an account. For a more detailed and comprehensive list of requirements, please see the requirements.md file, located in the repository. 
 
 Proceed to describe how to install / setup one's local environment / get started with the project.
 
+Want to try it out for yourself? Follow these instructions:
+> Note: This tutorial requires basic knowledge of Linux and Git. Computer must also have python3/python installed. 
 
-## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
+1) What we're going to do is open up the terminal. Use the `cd` command to navigate to the directory you want this repository to be stored in. 
+2) Then, use the `git clone` command. You can go ahead and copy-paste this into the terminal: `git clone https://github.com/PioRomo/131-email-client.git`
+   > Note: Ensure you're logged into GitHub before completing this step. 
+3) You now have a cloned repository! Make sure your computer has all the proper libraries to run the project. You can check which python libraries are on your computer by using the `pip3 list` command for python3, or `pip list` for just python. Refer to the complete list of libraries above. 
+   > Note: Missing libraries but not sure how to install them? Simply google "python" and followed by the name of the library. 
+4) Once you have all libraries installed, you should be ready to run the project. Make sure you are in the proper directory and type `flask run` into the terminal.
+5) You know the app is running correctly if you see something like this in the terminal: 
+   ` * Debug mode: off
+     WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+     * Running on http://127.0.0.1:5000
+      Press CTRL+C to quit
+   `
+6) Copy the url link and paste into your browser. You are now free to register, login, logout, delete your account, and of course, send emails! Enjoy! 
 
-`write-your-code-here`
+
 
 
 
