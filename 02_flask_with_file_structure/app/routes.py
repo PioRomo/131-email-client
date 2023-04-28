@@ -119,3 +119,4 @@ def profile():
             db.session.commit()
             flash('Profile icon updated successfully.')
             return redirect(url_for('profile'))
+    return render_template('profile.html')
