@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 
 {% block page %}
-<a href = "{{url_for('profile')}}">Go to Profile</a>
+        <form action = "/composer" id = "compose">
+                <h1> <input type = "submit" class="btn" value="Compose Email"></h1></br></br>
+        <form/>
+        <a href = "{{url_for('profile')}}">Go to Profile</a>
 {% endblock %}
