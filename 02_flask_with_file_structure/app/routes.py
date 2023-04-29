@@ -112,7 +112,7 @@ def profile():
     if request.method == 'POST':
         profile_icon = request.files['profile_icon']
         if profile_icon:
-            # Save the uploaded file to the filesystem
+            # Save the uploaded file to the filesystem #pull
             profile_icon.save(os.path.join(myapp_obj.config['UPLOAD_FOLDER'], profile_icon.filename))
             # Update the user's profile icon in the database
             user.profile_icon = profile_icon.filename
