@@ -9,14 +9,7 @@
   
    Engineering solutions to problems, such as our problem of creating a web app, come in many sizes. Some big and some small. The impact, however, can 
   sometimes be impossible to measure. Our project will most likely have little impact in terms of the global scale, but there are many engineering 
-  solutions who seem to have surpassed such a scale. Many engineering solutions throughout time have made impacts in all kinds of aspects - economical, 
-  environmental, and societal- that have changed the world we live in, for better or worse. Some solutions improve societies and sometimes society as a 
-  whole. Take for instance, water purification. This solution has provided countless families with clean drinking water, something though impossible a 
-  couple hundred years ago. Even household appliances have made our lives easier. There have been solutions that impact us economically, like LED light
-  bulbs. This invention has made the price of electricity decrease dramatically, and by doing so has relieved many families of stress and financial 
-  burden.  And environmental impacts? I could write a 100-page essay about every single one. But for fun, I’ll name two: solar panels and gas-powered 
-  cars. Solar panels provide millions of homes with energy and electricity, harnessing energy from the sun without harming our planet. Gas-powered cars 
-  on the other hand, have done detrimental damage to our home, despite the positive effects it has created for our society as means of transportation. 
+  solutions who seem to have surpassed such a scale. For the global and societal contexts impact from our email web application, it will allow users to connect with other users from different parts of the world and learn their culture and speech through emails and chatting. Through the user of computer, user will overtime learn how to type which schools now teach students how to do. For the economic and environmental impacts of our email web application, it will allow the world to cut down on its use of trees to make paper for envelopes and the letter itself as well as reduce the carbon footprint which would be required to send a letter overseas, which would be by plane, or domestically, which would by car or truck. Additionally, this would allow us to spend less on the envelopes and the stamps needed to send letters to a person, but also allows us to spend less on the fuel used by planes, cars, and trucks that are taking the letters to a person and having them send back the letter to repeat the process over and over again.
     
    To summarize, engineering solutions can have positive and negative impacts on our world. Such solutions adhere to professional and ethical 
   responsiblities. Therefore, as engineers ourselves, we must adhere to the same criteria. 
