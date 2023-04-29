@@ -125,3 +125,8 @@ def profile():
 @login_required
 def inbox(): 
     return render_template('inbox.html') 
+
+@myapp_obj.route('/searchbar')
+@login_required
+def searchbar():
+    return render_template('searchbar.html')
