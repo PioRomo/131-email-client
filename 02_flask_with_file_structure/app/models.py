@@ -9,6 +9,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(32), nullable=False)
     password = db.Column(db.String(255), nullable=False)
     phonenumber = db.Column(db.String(100), nullable=False)
+    emails = db.relationship('Email', backref='User', lazy='dynamic')
 
     
 
@@ -23,6 +24,14 @@ class User(db.Model, UserMixin):
     
     def remove(self):
         db.session.delete(self)
+        
+#caused bug with deleting accountss
+class Email(db.Model):
+        id = db.Column(db.Integer, primary_key=True)
+        msg = db.Column(db.String(1000), nullable=False)
+        recipient = db.Column(db.String(32), nullable=False)
+        subject = db.Column(db.String(100), nullable=False)
+        user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)

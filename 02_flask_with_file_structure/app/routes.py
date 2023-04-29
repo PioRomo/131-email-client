@@ -1,7 +1,7 @@
 from flask import render_template, request, redirect, url_for, session, flash
 from .forms import LoginForm
 from app import myapp_obj,db
-from app.models import User
+from app.models import User, Email
 from flask_wtf import FlaskForm
 
 from wtforms import StringField, SubmitField
@@ -99,6 +99,11 @@ def delete():
    if request.method == 'POST': 
         #Fetch current user and delete from database
         user = User.query.filter_by(phonenumber= current_user.phonenumber).first()
+        emails = Email.query.all()
+        for i in emails:
+                if i.user_id == user.id:
+                        db.session.delete(i)
+                        db.commit()
         db.session.delete(user)
         db.session.commit()
         return redirect(url_for('login'))
@@ -121,9 +126,35 @@ def profile():
             return redirect(url_for('profile'))
     return render_template('profile.html')
 
-@myapp_obj.route('/inbox')
+@myapp_obj.route('/inbox',methods=['GET','POST'])
 @login_required
 def inbox(): 
     return render_template('inbox.html') 
+
+@myapp_obj.route('/composer',methods=['GET','POST'])
+@login_required
+def composer():
+        if request.method == 'POST':
+                recipient = request.form.get('recipient')
+                subject = request.form.get('subject')
+                msg = request.form.get('msg')
+                new_email = Email(recipient = recipient, subject = subject, msg = msg)
+                users = User.query.all()
+                uid = null
+                for i in users:
+                        if i.phonenumber == recipient:
+                                uid = i.id
+                new_email.user_id = uid
+                db.session.add(new_email)
+                db.commit()
+                return redirect('/inbox')
+        return render_template('composer.html')
+
+
+
+@myapp_obj.route('/searchbar')
+@login_required
+def searchbar():
+
 def search():
     return render_template('searchbar.html')
