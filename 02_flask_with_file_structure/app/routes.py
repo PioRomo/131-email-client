@@ -162,5 +162,14 @@ def composer():
 @login_required
 def searchbar():
         def search():
+           # phone_list = [ ]
+           # search_phone = input("Search ")
+           # for phone in phone_list:
+               # if search_phone == phone:
+                   # print("Found email from", phone)
+                   # break
+           # else:
+               # print("No emails found for this phone number")
+            
                 return
         return render_template('searchbar.html')
