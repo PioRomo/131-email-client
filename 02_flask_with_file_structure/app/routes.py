@@ -129,15 +129,21 @@ def profile():
 @myapp_obj.route('/inbox',methods=['GET','POST'])
 @login_required
 def inbox(): 
-    return render_template('inbox.html') 
+        cur_uid = current_user.id
+        emails = Email.query.all()
+        for i in emails:
+                if i.user_id == cur_uid:
+                        print(i.subject)
+                        print(i.msg)
+        return render_template('inbox.html') 
 
 @myapp_obj.route('/composer',methods=['GET','POST'])
 @login_required
 def composer():
+    recipient = request.form.get('recipient')
+    subject = request.form.get('subject')
+    msg = request.form.get('msg')
         if request.method == 'POST':
-                recipient = request.form.get('recipient')
-                subject = request.form.get('subject')
-                msg = request.form.get('msg')
                 new_email = Email(recipient = recipient, subject = subject, msg = msg)
                 users = User.query.all()
                 uid = null
