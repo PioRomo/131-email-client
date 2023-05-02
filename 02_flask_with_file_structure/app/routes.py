@@ -155,6 +155,6 @@ def composer():
 @myapp_obj.route('/searchbar')
 @login_required
 def searchbar():
-
-def search():
+    def search():
+        
     return render_template('searchbar.html')
