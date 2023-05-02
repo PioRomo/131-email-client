@@ -156,5 +156,5 @@ def composer():
 @login_required
 def searchbar():
         def search():
-                
+                return
         return render_template('searchbar.html')
