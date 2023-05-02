@@ -41,7 +41,7 @@ Jin Chen
 
 Thien Bryan Nguyen
  * Search Bar
- * Attaching images to emails
+ * Forget Password button
  * Notification after user action
 
 
