@@ -140,9 +140,9 @@ def inbox():
 @myapp_obj.route('/composer',methods=['GET','POST'])
 @login_required
 def composer():
-    recipient = request.form.get('recipient')
-    subject = request.form.get('subject')
-    msg = request.form.get('msg')
+        recipient = request.form.get('recipient')
+        subject = request.form.get('subject')
+        msg = request.form.get('msg')
         if request.method == 'POST':
                 new_email = Email(recipient = recipient, subject = subject, msg = msg)
                 users = User.query.all()
