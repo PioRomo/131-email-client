@@ -146,7 +146,7 @@ def composer():
         if request.method == 'POST':
                 new_email = Email(recipient = recipient, subject = subject, msg = msg)
                 users = User.query.all()
-                uid = null
+                uid = "null"
                 for i in users:
                         if i.phonenumber == recipient:
                                 uid = i.id
