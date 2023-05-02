@@ -152,7 +152,7 @@ def composer():
                                 uid = i.id
                 new_email.user_id = uid
                 db.session.add(new_email)
-                db.commit()
+                db.session.commit()
                 return redirect('/inbox')
         return render_template('composer.html')
 
