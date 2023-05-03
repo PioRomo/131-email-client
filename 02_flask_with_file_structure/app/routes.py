@@ -108,8 +108,8 @@ def resetPassword():
         if not user:
             flash('Please check your form details and try again.')
             return redirect(url_for('resetPassword'))
-        elif phonenumber != user.phonenumber:
-            flash('Invalid Phonenumber! Please try again.')
+        elif username != user.username:
+            flash('Username is incorrect! Please try again.')
             return redirect(url_for('resetPassword'))
         elif new_password != new_password2: 
             flash('Passwords must match. Please try again.')
