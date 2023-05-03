@@ -95,7 +95,8 @@ def register():
 def resetPassword(): 
     username = request.form.get('username')
     phonenumber = request.form.get('phonenumber')
-    password = request.form.get('password')
+    new_password = request.form.get('new_password')
+    new_password2 = request.form.get('new_password2')
     #reenter password here
     
     if request.method == 'POST': 
@@ -106,8 +107,14 @@ def resetPassword():
         if not user:
             flash('Please check your form details and try again.')
             return redirect(url_for('resetPassword'))
+        elif phonenumber != user.phonenumber:
+            flash('Invalid Phonenumber! Please try again.')
+            return redirect(url_for('resetPassword'))
+        elif new_password != new_password2: 
+            flash('Passwords must match. Please try again.')
+            return redirect(url_for('resetPassword'))
     
-         user.set_password(#new password here)
+         user.set_password(new_password)
          return redirect(url_for('login'))
     
     return render_template('resetPassword.html')
