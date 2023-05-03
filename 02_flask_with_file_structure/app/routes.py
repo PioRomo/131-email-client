@@ -91,7 +91,7 @@ def register():
      
     return render_template('register.html')
    
-@myapp_obj.route('/resetPassword')
+@myapp_obj.route('/resetPassword', methods=['GET', 'POST'])
 def resetPassword(): 
     #Forms to reset password. 2 password forms to ensure they match
     username = request.form.get('username')
