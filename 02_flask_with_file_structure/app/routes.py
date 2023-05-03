@@ -111,7 +111,7 @@ def resetPassword():
         elif username != user.username:
             flash('Username is incorrect! Please try again.')
             return redirect(url_for('resetPassword'))
-        elif user.password == new_password: 
+        elif check_password_hash(user.password, new_password): 
             flash('New password cannot equal old password.')
             return redirect(url_for('resetPassword'))
         elif new_password != new_password2: 
