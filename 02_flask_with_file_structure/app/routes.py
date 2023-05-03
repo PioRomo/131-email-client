@@ -111,11 +111,14 @@ def resetPassword():
         elif username != user.username:
             flash('Username is incorrect! Please try again.')
             return redirect(url_for('resetPassword'))
+        elif user.password == new_password: 
+            flash('New password cannot equal old password.')
+            return redirect(url_for('resetPassword'))
         elif new_password != new_password2: 
             flash('Passwords must match. Please try again.')
             return redirect(url_for('resetPassword'))
     
-        #Then reset the password for our user
+        #Then reset the password for our user. We don't need to hash it. 
         user.set_password(new_password)
         db.session.commit()
         
