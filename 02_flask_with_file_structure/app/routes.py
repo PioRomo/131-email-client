@@ -91,7 +91,26 @@ def register():
      
     return render_template('register.html')
    
+@myapp_obj.route('/resetPassword')
+def resetPassword(): 
+    username = request.form.get('username')
+    phonenumber = request.form.get('phonenumber')
+    password = request.form.get('password')
+    #reenter password here
     
+    if request.method == 'POST': 
+        #Again find user
+        user = User.query.filter_by(phonenumber=phonenumber).first()
+        
+        #Either user doesn't exists or password is wrong
+        if not user:
+            flash('Please check your form details and try again.')
+            return redirect(url_for('resetPassword'))
+    
+         user.set_password(#new password here)
+         return redirect(url_for('login'))
+    
+    return render_template('resetPassword.html')
     
 @myapp_obj.route('/deleteAccount', methods=['GET', 'POST'])
 @login_required
