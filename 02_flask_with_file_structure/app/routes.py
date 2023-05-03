@@ -93,17 +93,18 @@ def register():
    
 @myapp_obj.route('/resetPassword')
 def resetPassword(): 
+    #Forms to reset password. 2 password forms to ensure they match
     username = request.form.get('username')
     phonenumber = request.form.get('phonenumber')
     new_password = request.form.get('new_password')
     new_password2 = request.form.get('new_password2')
-    #reenter password here
+    
     
     if request.method == 'POST': 
-        #Again find user
+        #Find user, this time by phonenumber for more security
         user = User.query.filter_by(phonenumber=phonenumber).first()
         
-        #Either user doesn't exists or password is wrong
+        #Either user doesn't exist, phonenumber is wrong or passwords don't match
         if not user:
             flash('Please check your form details and try again.')
             return redirect(url_for('resetPassword'))
@@ -114,8 +115,9 @@ def resetPassword():
             flash('Passwords must match. Please try again.')
             return redirect(url_for('resetPassword'))
     
-         user.set_password(new_password)
-         return redirect(url_for('login'))
+        #Then reset the password for our user
+        user.set_password(new_password)
+        return redirect(url_for('login'))
     
     return render_template('resetPassword.html')
     
