@@ -116,8 +116,8 @@ def resetPassword():
             return redirect(url_for('resetPassword'))
     
         #Then reset the password for our user
-        user.set_password(generate_password_hash(new_password, method='sha256'))
-        user.save() 
+        user.set_password(generate_password_hash(new_password, method='sha256'), commit=True)
+        
         return redirect(url_for('login'))
     
     return render_template('resetPassword.html')
