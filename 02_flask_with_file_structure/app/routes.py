@@ -195,7 +195,7 @@ def composer():
 @login_required
 def searchbar():
         def search():
-           # phone_list = [ ]
+           # phone_list = [phonenumber]
            # search_phone = input("Search ")
            # for phone in phone_list:
                # if search_phone == phone:
