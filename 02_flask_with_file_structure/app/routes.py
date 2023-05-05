@@ -27,7 +27,7 @@ def login():
     remember = True if request.form.get('remember') else False
     
     if request.method == 'POST': 
-        #Again find user
+        #find user
         user = User.query.filter_by(username=username).first()
         
         #Either user doesn't exists or password is wrong
@@ -35,6 +35,7 @@ def login():
             flash('Please check your login details and try again.')
             return redirect(url_for('login'))
         
+        #if all is wel login user and redirect to profile page
         login_user(user, remember=remember)
         return redirect(url_for('profile'))
     return render_template('login.html')
@@ -68,9 +69,37 @@ def register():
                 us_number = "+1" + phonenumber
                 my_number = phonenumbers.parse(us_number)
             
+
+        except:
+            flash('Not a valid phone number!')
+            return redirect(url_for('register'))
+        #If the user already exists
+        if user: 
+            flash('User already exists')
+            return redirect(url_for('register'))
+        #else if the phonenumber is invalid
+        elif not phonenumbers.is_valid_number(my_number): 
+            flash('Phone number invalid!')
+            return redirect(url_for('register'))
+        #Check the length of password 
+        if len(password) < 8 or len(password) > 20: 
+            flash('Password must be at least 8 characters and no more than 20')
+            return redirect(url_for('register'))
+        #Must have at least one number 
+        elif not any (char.isdigit() for char in password):
+            flash('Password must have one number')
+            return redirect(url_for('register'))
+            
+        new_user = User(phonenumber=phonenumber, username=username, password=generate_password_hash(password, method='sha256'))
+       #create a new user and add to the database
+        db.session.add(new_user)
+        db.session.commit()
+        return redirect(url_for('login'))
+
             except:
                 flash('Not a valid phone number!')
                 return redirect(url_for('register'))
+
      
             #If the user already exists
             if user: 
@@ -109,21 +138,24 @@ def resetPassword():
         #Find user, this time by phonenumber for more security
         user = User.query.filter_by(phonenumber=phonenumber).first()
         
-        #Either user doesn't exist, phonenumber is wrong or passwords don't match
+        #user does not exist
         if not user:
             flash('Please check your form details and try again.')
             return redirect(url_for('resetPassword'))
+        #username input does not match what we have in the database
         elif username != user.username:
             flash('Username is incorrect! Please try again.')
             return redirect(url_for('resetPassword'))
+        #check to see if password input is the same as the old password
         elif check_password_hash(user.password, new_password): 
             flash('New password cannot equal old password.')
             return redirect(url_for('resetPassword'))
+        #both password forms must be the same to reset it! 
         elif new_password != new_password2: 
             flash('Passwords must match. Please try again.')
             return redirect(url_for('resetPassword'))
     
-        #Then reset the password for our user. We don't need to hash it. 
+        #Then reset the password for our user and save. We don't need to hash it. 
         user.set_password(new_password)
         db.session.commit()
         
@@ -137,11 +169,13 @@ def delete():
    if request.method == 'POST': 
         #Fetch current user and delete from database
         user = User.query.filter_by(phonenumber= current_user.phonenumber).first()
+        #delete all emails user has sent
         emails = Email.query.all()
         for i in emails:
                 if i.user_id == user.id:
                         db.session.delete(i)
                         db.commit()
+        #delete user, and save                
         db.session.delete(user)
         db.session.commit()
         return redirect(url_for('login'))
