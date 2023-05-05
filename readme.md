@@ -26,23 +26,25 @@ Our email web application will allow users to sign up to our application to send
 Pio Romo
  * Login
  * Logout
- * Registering for the website
+ * Registration
  * Deleting account
  * Phone number verification
+ * Resetting password
 
 Barak Kaufman
  * Sending email
  * To Do List
+ * Deleting emails
 
 Jin Chen
  * Profile Management
- * Chat box
+ * Send messages
  * Contact book
 
 Thien Bryan Nguyen
  * Search Bar
- * Forget Password button
  * Notification after user action
+ * Saving/archiving emails
 
 
 ## Technologies Used
