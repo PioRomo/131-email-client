@@ -68,39 +68,9 @@ def register():
             try:
                 us_number = "+1" + phonenumber
                 my_number = phonenumbers.parse(us_number)
-            
-
-        except:
-            flash('Not a valid phone number!')
-            return redirect(url_for('register'))
-        #If the user already exists
-        if user: 
-            flash('User already exists')
-            return redirect(url_for('register'))
-        #else if the phonenumber is invalid
-        elif not phonenumbers.is_valid_number(my_number): 
-            flash('Phone number invalid!')
-            return redirect(url_for('register'))
-        #Check the length of password 
-        if len(password) < 8 or len(password) > 20: 
-            flash('Password must be at least 8 characters and no more than 20')
-            return redirect(url_for('register'))
-        #Must have at least one number 
-        elif not any (char.isdigit() for char in password):
-            flash('Password must have one number')
-            return redirect(url_for('register'))
-            
-        new_user = User(phonenumber=phonenumber, username=username, password=generate_password_hash(password, method='sha256'))
-       #create a new user and add to the database
-        db.session.add(new_user)
-        db.session.commit()
-        return redirect(url_for('login'))
-
             except:
                 flash('Not a valid phone number!')
                 return redirect(url_for('register'))
-
-     
             #If the user already exists
             if user: 
                 flash('User already exists')
@@ -119,7 +89,7 @@ def register():
                 return redirect(url_for('register'))
             
             new_user = User(phonenumber=phonenumber, username=username, password=generate_password_hash(password, method='sha256'))
-            #new_user.set_password(new_user.password)
+            #create a new user and add to the database
             db.session.add(new_user)
             db.session.commit()
             return redirect(url_for('login'))
