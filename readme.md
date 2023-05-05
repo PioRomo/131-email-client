@@ -35,7 +35,6 @@ Our email web application will allow users to sign up to our application to send
  * Contact book
  * Search Bar
  * Notification after user action
- * Saving/archiving emails
 
 
 ## Responsibilities
@@ -60,7 +59,6 @@ Jin Chen
 Thien Bryan Nguyen
  * Search Bar
  * Notification after user action
- * Saving/archiving emails
 
 
 ## Technologies Used
