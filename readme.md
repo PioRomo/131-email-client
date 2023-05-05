@@ -97,8 +97,6 @@ Thien Bryan Nguyen
 
 For this project, we had four main requirements. The app needed to be able to support registration, login, logout, and deleting an account. For a more detailed and comprehensive list of requirements, please see the requirements.md file, located in the repository. 
 
-Proceed to describe how to install / setup one's local environment / get started with the project.
-
 Want to try it out for yourself? Follow these instructions:
 > Note: This tutorial requires basic knowledge of Linux and Git. Computer must also have python3/python installed. 
 
