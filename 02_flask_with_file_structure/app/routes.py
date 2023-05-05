@@ -58,7 +58,7 @@ def register():
     if request.method == 'POST': 
         check_username = User.query.filter_by(username=username).first()
         if check_username: 
-            flash('Username already being used pal!')
+            flash('Username already in use. Please try another one!')
             return redirect(url_for('register')) 
         #then we can check for phone number
         else:
