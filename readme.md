@@ -20,28 +20,44 @@ CMPE131 Email Client Project
 Email client web application for CMPE 131. With this web app, users will be able to register, login/logout, delete their account, as well as send messages to other users. Additionally in this email client web application, the application will allow users to create to do lists and contact books, attach images to an email or message, manage their profile, and get notifications about the users' action such as the email or message being sent.
 
 ## Requirements
-Our email web application will allow users to sign up to our application to send messages or emails to another user on the platform. For more details on the specific requirements, please read the requirements.md.
+Our email web application will allow users to sign up to our application to send messages or emails to another user on the platform. Below is a list of the requirements. For more details on the specific requirements, please read the requirements.md.
+ * Login
+ * Logout 
+ * Registration
+ * Delete Account 
+ * Phone number verification
+ * Resetting password
+ * Sending email
+ * To Do List
+ * Deleting emails
+ * Profile Management
+ * Send messages
+ * Contact book
+ * Search Bar
+ * Notification after user action
+
 
 ## Responsibilities
 Pio Romo
  * Login
  * Logout
- * Registering for the website
+ * Registration
  * Deleting account
  * Phone number verification
+ * Resetting password
 
 Barak Kaufman
  * Sending email
  * To Do List
+ * Deleting emails
 
 Jin Chen
  * Profile Management
- * Chat box
+ * Send messages
  * Contact book
 
 Thien Bryan Nguyen
  * Search Bar
- * Forget Password button
  * Notification after user action
 
 
@@ -78,8 +94,6 @@ Thien Bryan Nguyen
 ## Setup
 
 For this project, we had four main requirements. The app needed to be able to support registration, login, logout, and deleting an account. For a more detailed and comprehensive list of requirements, please see the requirements.md file, located in the repository. 
-
-Proceed to describe how to install / setup one's local environment / get started with the project.
 
 Want to try it out for yourself? Follow these instructions:
 > Note: This tutorial requires basic knowledge of Linux and Git. Computer must also have python3/python installed. 

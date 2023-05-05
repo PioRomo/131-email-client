@@ -55,15 +55,21 @@ def register():
     password = request.form.get('password')
     phonenumber = request.form.get('phonenumber')
     
-    #Check if user already exists by searching for phonenumber
+    #first check for duplicate usernames
     if request.method == 'POST': 
-        user = User.query.filter_by(phonenumber=phonenumber).first()
-        
-        #Parse through a phone number;NOTE this only US phone numbers are valid
-        try:
-            us_number = "+1" + phonenumber
-            my_number = phonenumbers.parse(us_number)
+        check_username = User.query.filter_by(username=username).first()
+        if check_username: 
+            flash('Username already in use. Please try another one!')
+            return redirect(url_for('register')) 
+        #then we can check for phone number
+        else:
+            user = User.query.filter_by(phonenumber=phonenumber).first()
+            #Parse through a phone number;NOTE this only US phone numbers are valid
+            try:
+                us_number = "+1" + phonenumber
+                my_number = phonenumbers.parse(us_number)
             
+
         except:
             flash('Not a valid phone number!')
             return redirect(url_for('register'))
@@ -89,7 +95,34 @@ def register():
         db.session.add(new_user)
         db.session.commit()
         return redirect(url_for('login'))
+
+            except:
+                flash('Not a valid phone number!')
+                return redirect(url_for('register'))
+
      
+            #If the user already exists
+            if user: 
+                flash('User already exists')
+                return redirect(url_for('register'))
+            #else if the phonenumber is invalid
+            elif not phonenumbers.is_valid_number(my_number): 
+                flash('Phone number invalid!')
+                return redirect(url_for('register'))
+            #Check the length of password 
+            if len(password) < 8 or len(password) > 20: 
+                flash('Password must be at least 8 characters and no more than 20')
+                return redirect(url_for('register'))
+            #Must have at least one number 
+            elif not any (char.isdigit() for char in password):
+                flash('Password must have one number')
+                return redirect(url_for('register'))
+            
+            new_user = User(phonenumber=phonenumber, username=username, password=generate_password_hash(password, method='sha256'))
+            #new_user.set_password(new_user.password)
+            db.session.add(new_user)
+            db.session.commit()
+            return redirect(url_for('login'))
     return render_template('register.html')
    
 @myapp_obj.route('/resetPassword', methods=['GET', 'POST'])
@@ -201,7 +234,7 @@ def composer():
 @login_required
 def searchbar():
         def search():
-           # phone_list = [ ]
+           # phone_list = [phonenumber]
            # search_phone = input("Search ")
            # for phone in phone_list:
                # if search_phone == phone:
