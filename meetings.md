@@ -59,5 +59,7 @@
   * Everyone knows what is there to complete
 
 ## 2023-05-05 2:00 - 2:30
+  * Bryan and Barak present
+  * Pio has implemented the reset password feature, along with ensuring no duplicate usernames possible
 
 ## 2023-05-12 2:00 - 2:30
