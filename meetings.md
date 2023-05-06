@@ -61,6 +61,6 @@
 ## 2023-05-05 2:00 - 2:30
   * Bryan and Barak present
   * Pio has implemented the reset password feature, along with ensuring no duplicate usernames possible
-  * Jin has implemented profile manage on local repository. Will be making sure it can add and remove profile picture.
+  * Jin has implemented profile manage on local repository and will push once everything works. Will be making sure it can add and remove profile picture. 
 
 ## 2023-05-12 2:00 - 2:30
