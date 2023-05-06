@@ -1,8 +1,9 @@
 {% extends "base.html" %}
 
 {% block page %}
+<form action="{{ url_for('profile') }}" method="post" enctype="multipart/form-data">
+    <input type="file" name="profile_icon">
+    <input type="submit" value="Update Profile Icon">
+</form>
 
-<p>User name: {{name}} </p>
-<a href="{{url_for('delete')}}">Delete Account? </a>
-<a href = "{{url_for('inbox')}}">Go To Inbox</a>
 {% endblock %}
