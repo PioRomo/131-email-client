@@ -62,5 +62,6 @@
   * Bryan and Barak present
   * Pio has implemented the reset password feature, along with ensuring no duplicate usernames possible
   * Jin has implemented profile manage on local repository and will push once everything works. Will be making sure it can add and remove profile picture. 
+  * Bryan has implemented the notification that an email has been sent and making the template for the to do list. Now is working on finishing search bar and helping out Barak with the To Do List
 
 ## 2023-05-12 2:00 - 2:30
