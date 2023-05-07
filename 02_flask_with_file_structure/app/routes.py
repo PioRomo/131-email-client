@@ -195,6 +195,7 @@ def composer():
                 new_email.user_id = uid
                 db.session.add(new_email)
                 db.session.commit()
+                flash("Email has been sent")
                 return redirect('/inbox')
         return render_template('composer.html')
 
