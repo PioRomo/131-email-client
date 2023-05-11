@@ -148,7 +148,7 @@ def delete():
         #delete user, and save                
         db.session.delete(user)
         db.session.commit()
-                flash("Your account has been deleted")
+        flash("Your account has been deleted")
         return redirect(url_for('login'))
     
    return render_template('deleteAccount.html')
@@ -201,7 +201,7 @@ def composer():
                         return redirect(url_for('composer'))
                 db.session.add(new_email)
                 db.session.commit()
-                        flash("The email has been sent")
+                flash("The email has been sent")
                 return redirect('/inbox')
         return render_template('composer.html')
 
