@@ -9,6 +9,13 @@
 			</form>
 		</div>
 		<div>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                        <div class="notification is-danger">
+                        {{ messages[0] }}
+                        </div>
+                {% endif %}
+                {% endwith %}
 			<h2>Incomplete Items</h2>
 			<ul>
 				{% for todo in incomplete %}
