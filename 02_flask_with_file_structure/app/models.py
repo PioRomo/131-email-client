@@ -25,10 +25,11 @@ class User(db.Model, UserMixin):
     def remove(self):
         db.session.delete(self)
         
-#caused bug with deleting accountss
+#caused bug when attempting to add sender variable
 class Email(db.Model):
         id = db.Column(db.Integer, primary_key=True)
         msg = db.Column(db.String(1000), nullable=False)
+        #sender = db.Column(db.String(32), nullable=False)
         recipient = db.Column(db.String(32), nullable=False)
         subject = db.Column(db.String(100), nullable=False)
         user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
