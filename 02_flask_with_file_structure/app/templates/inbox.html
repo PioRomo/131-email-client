@@ -10,7 +10,14 @@
         {% endwith %}
         <form action = "/composer" id = "compose">
                 <h1> <input type = "submit" class="btn" value="Compose Email"></h1></br></br>
-        <form/>
+        </form>
+        <form action= "" method="post">
+                <h1> <input id="searchoption" name="searchoption" type="text" placeholder="Search parameter" class="textbox"></h1>
+                <h1> <input type="submit" class="btn" value="Search"></h1>
+        </form>
+        <form action="/inbox'>
+                      <h1> <input type="submit" class="btn" value="Clear Search"></h1>
+                                                                                </form>
         <a class = "circleButtons" href = "{{url_for('delete')}}">Delete Account</a>
         <a class = "circleButtons" href = "{{url_for('profile')}}">Go to Profile</a>
         {% for i in emailList %}
