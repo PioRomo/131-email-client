@@ -3,15 +3,15 @@
 {% block page %}
         {% with messages = get_flashed_messages() %}
         {% if messages %}
-                <div class="notification is-danger">
+                <div style= "font-size:30" class="notification is-danger">
                 {{ messages[0] }}
                 </div>
         {% endif %}
         {% endwith %}
         <form action = "" method="post" id = "email">
-                <h1> <input id="recipient" name="recipient" type="text" placeholder="To" class="textbox"><h1/>
-                <h1> <input id="subject" name="subject" type="text" placeholder="Subject" class="textbox"/><h1/>
-                <h1> <input id="msg" name="msg" type="text" placeholder="Message" class="textbox"/><h1/></br>>
-                <d> <input type = "submit" class = "btn" value = "Send"><d/>
+                <h1> <input id="recipient" name="recipient" type="text" placeholder="To" class="textbox"></h1>
+                <h1> <input id="subject" name="subject" type="text" placeholder="Subject" class="textbox"/></h1>
+                <textarea rows=8 cols=50 id="msg" name="msg" type="text" placeholder="Message" class="textbox"></textarea><br><br>>
+                <d> <input type = "submit" class = "btn" value = "Send"></d>
         <form/>
 {% endblock %}
