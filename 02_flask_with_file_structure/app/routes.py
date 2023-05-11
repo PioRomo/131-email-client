@@ -222,6 +222,7 @@ def searchbar():
                 for i in range (len(username)):
                     if search == (username[i]):
                         print ("Emails found: ")
+                        #need help with this part of printing the messages from the user
                         break
                     elif i == (len(username)-1):
                         print ("No emails found")            
