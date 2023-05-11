@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 
 {% block page %}
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+                <div class="notification is-danger">
+                {{ messages[0] }}
+                </div>
+        {% endif %}
+        {% endwith %}
         <form action = "" method="post" id = "email">
                 <h1> <input id="recipient" name="recipient" type="text" placeholder="Recipient phone number" class="textbox"><h1/>
                 <h1> <input id="subject" name="subject" type="text" placeholder="Subject" class="textbox"/><h1/>

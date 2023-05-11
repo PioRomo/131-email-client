@@ -144,7 +144,7 @@ def delete():
         for i in emails:
                 if i.user_id == user.id:
                         db.session.delete(i)
-                        db.commit()
+                        db.session.commit()
         #delete user, and save                
         db.session.delete(user)
         db.session.commit()
@@ -173,11 +173,12 @@ def profile():
 def inbox(): 
         cur_uid = current_user.id
         emails = Email.query.all()
+        emailList = []
         for i in emails:
                 if i.user_id == cur_uid:
-                        print(i.subject)
-                        print(i.msg)
-        return render_template('inbox.html') 
+                        emailList.append((i.subject,i.msg))
+                        #print(emailList)
+        return render_template('inbox.html',emailList = emailList) 
 
 @myapp_obj.route('/composer',methods=['GET','POST'])
 @login_required
@@ -187,15 +188,18 @@ def composer():
         msg = request.form.get('msg')
         if request.method == 'POST':
                 new_email = Email(recipient = recipient, subject = subject, msg = msg)
+                #new_email.sender = current_user.username
                 users = User.query.all()
                 uid = "null"
                 for i in users:
-                        if i.phonenumber == recipient:
+                        if i.username == recipient:
                                 uid = i.id
                 new_email.user_id = uid
+                if uid == "null":
+                        flash("The user you entered does not exist")
+                        return redirect(url_for('composer')
                 db.session.add(new_email)
                 db.session.commit()
-                flash("Email has been sent")
                 return redirect('/inbox')
         return render_template('composer.html')
 
