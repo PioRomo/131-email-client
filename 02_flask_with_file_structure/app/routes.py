@@ -144,7 +144,7 @@ def delete():
         for i in emails:
                 db.session.delete(i)
                 db.session.commit()
-        todos = Todo.wuery.filter_by(user_id = user.id)
+        todos = Todo.query.filter_by(user_id = current_user.id)
         for i in todos:
                 db.session.delete(i)
                 db.session.commit()
