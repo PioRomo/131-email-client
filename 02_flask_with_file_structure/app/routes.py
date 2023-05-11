@@ -182,6 +182,11 @@ def inbox():
                 if i.user_id == cur_uid:
                         emailList.append((i.subject,i.msg))
                         #print(emailList)
+                if request.method == 'POST':
+                        emailList.clear()
+                        emails = Email.query.filter_by(user_id = current_user.id, subject = request.form.get('searchoption'))
+                        for i in emails:
+                            emailList.append((i.subject,i.msg))
         return render_template('inbox.html',emailList = emailList) 
 
 @myapp_obj.route('/composer',methods=['GET','POST'])
