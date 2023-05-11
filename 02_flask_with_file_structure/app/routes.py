@@ -214,15 +214,15 @@ def composer():
 @login_required
 def searchbar():
         def search():
-           # username = [username]
-           # search_phone = input("Search ")
-           # for phone in phone_list:
-               # if search_phone == phone:
-                   # print("Found email from", phone)
-                   # break
-           # else:
-               # print("No emails found for this phone number")
-            
+            username = [ ] #need help figuring out how to create this list
+            search = input("Search: ")
+            for i in range(len(username)):
+                if search == (username[i]):
+                    print ("These are the emails from this user")
+                    #need help with printing the emails from a given user
+                    break
+                elif i == (len(username)-1):
+                    print ("You have no emails from this user")            
                 return
         return render_template('searchbar.html')
 
