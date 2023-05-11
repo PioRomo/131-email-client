@@ -1,7 +1,7 @@
 from flask import render_template, request, redirect, url_for, session, flash
 from .forms import LoginForm
 from app import myapp_obj,db
-from app.models import User, Email
+from app.models import User, Email, Todo
 from flask_wtf import FlaskForm
 
 from wtforms import StringField, SubmitField
@@ -140,11 +140,14 @@ def delete():
         #Fetch current user and delete from database
         user = User.query.filter_by(phonenumber= current_user.phonenumber).first()
         #delete all emails user has sent
-        emails = Email.query.all()
+        emails = Email.query.filter_by(user_id = current_user.id)
         for i in emails:
-                if i.user_id == user.id:
-                        db.session.delete(i)
-                        db.session.commit()
+                db.session.delete(i)
+                db.session.commit()
+        todos = Todo.query.filter_by(user_id = current_user.id)
+        for i in todos:
+                db.session.delete(i)
+                db.session.commit()
         #delete user, and save                
         db.session.delete(user)
         db.session.commit()
@@ -222,3 +225,36 @@ def searchbar():
             
                 return
         return render_template('searchbar.html')
+
+@myapp_obj.route('/todolist')
+@login_required
+def todolist():
+
+        incomplete = Todo.query.filter_by(complete=False,user_id = current_user.id).all()
+        complete = Todo.query.filter_by(complete=True,user_id = current_user.id).all()
+        return render_template('todolist.html', incomplete=incomplete, complete=complete)
+
+@myapp_obj.route('/add', methods=['GET','POST'])
+def add():
+
+        todo = Todo(text=request.form['todoitem'], complete=False,user_id = current_user.id)
+        db.session.add(todo)
+        db.session.commit()
+        return redirect(url_for('todolist'))
+
+@myapp_obj.route('/complete/<id>')
+def complete(id):
+
+        todo = Todo.query.filter_by(id=int(id)).first()
+        todo.complete = True
+        db.session.commit()
+        return redirect(url_for('todolist'))
+
+@myapp_obj.route('/clearTodo', methods=['GET','POST'])
+def clearTodo():
+
+        todo = Todo.query.filter_by(complete=True, user_id = current_user.id)
+        for i in todo:
+                db.session.delete(i)
+                db.session.commit()
+        return redirect(url_for('todolist'))

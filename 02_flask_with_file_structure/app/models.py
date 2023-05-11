@@ -10,6 +10,7 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(255), nullable=False)
     phonenumber = db.Column(db.String(100), nullable=False)
     emails = db.relationship('Email', backref='User', lazy='dynamic')
+    todos = db.relationship('Todo', backref='User', lazy='dynamic')
 
     
 
@@ -33,7 +34,18 @@ class Email(db.Model):
         recipient = db.Column(db.String(32), nullable=False)
         subject = db.Column(db.String(100), nullable=False)
         user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-
+        
+        def __repr__(self):
+                return f'<user {self.user_id}: {self.recipient}> email: {self.id}'
+class Todo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(200))
+    complete = db.Column(db.Boolean)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    
+    def __repr__(self):
+        return self.text
+    
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.String(256))
