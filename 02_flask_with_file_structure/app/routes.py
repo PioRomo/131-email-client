@@ -197,7 +197,7 @@ def composer():
                 new_email.user_id = uid
                 if uid == "null":
                         flash("The user you entered does not exist")
-                        return redirect(url_for('composer')
+                        return redirect(url_for('composer'))
                 db.session.add(new_email)
                 db.session.commit()
                 return redirect('/inbox')
