@@ -18,15 +18,15 @@
 
 ## Func.Req. Use Cases
 #### The website will be able to send emails 
-  > Summary: This app will allow users to send emails to other users
-  > Pre-condition: User must be logged in
-  > Trigger: "Send" button must be clicked
-  > Primary Sequence: 
-      > "Send" pop-up with send functionality appears at the bottom right of the screen
-      > User inputs email and email content
-      > User can optionally input subject, or add images/files
-      > User clicks send, and the email is sent
-  > Primary Post-Conditions: Email is sent and will be received by receiver
+    Summary: This app will allow users to send emails to other users
+    Pre-condition: User must be logged in
+    Trigger: "Send" button must be clicked
+    Primary Sequence: 
+      * "Send" pop-up with send functionality appears at the bottom right of the screen
+      * User inputs email and email content
+      * User can optionally input subject, or add images/files
+      * User clicks send, and the email is sent
+  Primary Post-Conditions: Email is sent and will be received by receiver
   > Alternative Sequence: 
       > "Send" pop-up with send functionality appears at the bottom right of the screen
       > User inputs email and email content
