@@ -1,9 +1,15 @@
 {% extends "base.html" %}
 
 {% block page %}
-<form action="{{ url_for('profile') }}" method="post" enctype="multipart/form-data">
-    <input type="file" name="profile_icon">
-    <input type="submit" value="Update Profile Icon">
-</form>
-
+<h1>Upload Profile Picture</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.profile_picture.label }}
+            {{ form.profile_picture }}
+        </div>
+        <div>
+            {{ form.submit }}
+        </div>
+    </form>
 {% endblock %}
