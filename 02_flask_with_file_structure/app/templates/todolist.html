@@ -5,7 +5,7 @@
 		<div>Add a new todo item:
 			<form action="{{ url_for('add') }}" method="POST">
 				<input type="text" name="todoitem">
-				<input type="submit" value="Add Item" class="button">
+				<input type="submit" value="Add Item" class="btn">
 			</form>
 		</div>
 		<div>
@@ -31,7 +31,7 @@
 		</div>
 	</br>
 	<form action="{{ url_for('clearTodo') }}" method="POST">
-		<input type="submit" value="Clear Completed Tasks" class="button">
+		<input type="submit" value="Clear Completed Tasks" class="btn">
 	</form>
 	</body>
 {% endblock %}
