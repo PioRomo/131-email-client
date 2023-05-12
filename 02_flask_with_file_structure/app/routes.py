@@ -191,6 +191,7 @@ def profile():
 @myapp_obj.route('/inbox',methods=['GET','POST'])
 @login_required
 def inbox(): 
+    #contains compose, searchbar
         emails = Email.query.filter_by(user_id = current_user.id)
         if request.method == 'POST':
                 emails = Email.query.filter_by(user_id = current_user.id, subject = request.form.get('searchoption'))
