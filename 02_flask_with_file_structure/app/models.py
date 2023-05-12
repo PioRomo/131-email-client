@@ -28,7 +28,7 @@ class User(db.Model, UserMixin):
         db.session.delete(self)
         
         
-class ProfilePictureForm(FlaskForm):
+class ProfilePictureForm(db.Model):
     profile_picture = FileField('Profile Picture')
     submit = SubmitField('Submit')
         
