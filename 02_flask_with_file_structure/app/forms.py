@@ -13,5 +13,9 @@ class RegisterForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     phonenumber = StringField('Phonenumber', validators=[DataRequired()])
-    
+   
+
+class ProfilePictureForm(FlaskForm):
+    profile_picture = FileField('Profile Picture')
+    submit = SubmitField('Submit')
 
