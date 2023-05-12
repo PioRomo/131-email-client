@@ -9,7 +9,7 @@
 * The website will allow users to change passwords if the users forgot their password
 * The website will send users notifications after user action
 * The website will allow users to save/archive emails
-* The website will allow users to create a contact Book
+* The website will allow users to delete their account
 * [The website will allow users to delete emails](#the-website-will-be-able-to-delete-emails)
 
 ## Non-functional Requirements 
