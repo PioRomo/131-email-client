@@ -4,7 +4,7 @@
 <body> 
 	<a href = "{{ url_for('delete_email',id=email.id) }}"><img id="delete-email" height= 50px src="https://thumbs.dreamstime.com/b/recycle-bin-icon-isolated-black-background-trash-can-icon-recycle-bin-icon-isolated-black-background-trash-can-icon-simple-161242736.jpg"></a>
         
-	<d style="font-size:20">Email from:&emsp;</d></br></br>
+	<d style="font-size:20">Email from:&emsp;{{email.sender}}</d></br></br>
 	<d style="font-size:20">Subject:&emsp;{{email.subject}}</d></br></br></br></br>
 	<p style="font-size:25">{{email.msg}}</p>
 	<form action="{{ url_for('inbox') }}">
