@@ -1,3 +1,4 @@
+#most are clones but in terms of the client
 import socket
 import threading
 
