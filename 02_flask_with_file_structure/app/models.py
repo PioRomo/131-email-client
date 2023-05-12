@@ -27,11 +27,6 @@ class User(db.Model, UserMixin):
     def remove(self):
         db.session.delete(self)
         
-        
-class ProfilePictureForm(db.Model):
-    profile_picture = FileField('Profile Picture')
-    submit = SubmitField('Submit')
-        
 #caused bug when attempting to add sender variable
 class Email(db.Model):
         id = db.Column(db.Integer, primary_key=True)
