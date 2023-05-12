@@ -20,11 +20,10 @@
         <a class = "circleButtons" href = "{{url_for('delete')}}">Delete Account</a>
         <a class = "circleButtons" href = "{{url_for('profile')}}">Go to Profile</a>
         {% for i in emailList %}
-                </br></br>
-                {{i[0]}}
                 </br>
-                {{i[1]}}
-<!--            <a href = "{{url_for('register')}}">{{i}}  -->
+                <ul>
+                <li class='mark' id = "emails"> from: </br>subject: {{i.subject}}<d>&nbsp;&emsp;<d><a style="font-size = 25" href="{{ url_for('emailReader', id=i.id) }}">Read</a></li>
+                </ul>
         {% endfor %}
 {% endblock %}
 
