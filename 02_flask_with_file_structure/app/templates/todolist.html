@@ -7,7 +7,7 @@
 				<input type="text" name="todoitem">
 				<input type="submit" value="Add Item" class="btn">
                 
-            
+                <a  href="{{ url_for('complete', id=todo.id) }}">Mark As Complete</a>
 			</form>
 		</div>
 		<div>
@@ -21,14 +21,9 @@
 			<h2>Incomplete Items</h2>
 			<ul>
 				{% for todo in incomplete %}
-				<li style="font-size: 20pt" class='mark'>{{ todo.text }}<d>&nbsp;&emsp;<d></li>
+				<li style="font-size: 20pt" class='mark'>{{ todo.text }}<d>&nbsp;&emsp;<d><a style="font-size: 15pt" href="{{ url_for('complete', id=todo.id) }}">Mark As Complete</a></li>
 				{% endfor %}	
-       
 			</ul>
-              </br>
-              <form action="{{ url_for('complete', id=todo.id) }}">
-		        <input type="submit" value="Mark As Complete" class="btn">
-	          </form>
 			<h2>Completed Items</h2>
 			<ul>
 				{% for todo in complete %}
