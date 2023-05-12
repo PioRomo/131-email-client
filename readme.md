@@ -52,11 +52,12 @@ Barak Kaufman
 
 Jin Chen
  * Profile Management
- * Send messages
+ * Chat/Send messages
 
 Thien Bryan Nguyen
  * Search Bar
  * Notification after user action
+ * Chat/Send message
 
 
 ## Technologies Used
