@@ -12,7 +12,7 @@ import os
 
 from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
-
+from werkzeug.utils import secure_filename
 from flask_login import current_user, login_user, logout_user, login_required
 
 @myapp_obj.route("/")
@@ -156,20 +156,36 @@ def delete():
     
    return render_template('deleteAccount.html')
 
+
+UPLOAD_FOLDER = 'myapp/static/images/profile'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+
+@myapp_obj.route('/upload_profile_picture', methods=['GET', 'POST'])
+@login_required
+def upload_profile_picture():
+    form = ProfilePictureForm()
+    if form.validate_on_submit():
+        file = form.profile_picture.data
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file_path = os.path.join(UPLOAD_FOLDER, filename)
+            file.save(file_path)
+            
+            # Update the user's profile picture field in the database
+            current_user.profile_picture = file_path
+            db.session.commit()
+            
+            flash('Profile picture uploaded successfully!')
+            return redirect(url_for('profile'))
+    return render_template('upload_profile_picture.html', form=form)
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
 @myapp_obj.route('/profile', methods=['GET', 'POST'])
 @login_required
 def profile():
-    user = User.query.filter_by(phonenumber=current_user.phonenumber).first()
-    if request.method == 'POST':
-        profile_icon = request.files['profile_icon']
-        if profile_icon:
-            # Save the uploaded file to the filesystem #pull
-            profile_icon.save(os.path.join(myapp_obj.config['UPLOAD_FOLDER'], profile_icon.filename))
-            # Update the user's profile icon in the database
-            user.profile_icon = profile_icon.filename
-            db.session.commit()
-            flash('Profile icon updated successfully.')
-            return redirect(url_for('profile'))
     return render_template('profile.html')
 
 @myapp_obj.route('/inbox',methods=['GET','POST'])
