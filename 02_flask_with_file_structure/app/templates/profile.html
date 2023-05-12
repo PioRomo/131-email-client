@@ -1,15 +1,11 @@
 {% extends "base.html" %}
 
 {% block page %}
-<h1>Upload Profile Picture</h1>
-    <form method="POST" enctype="multipart/form-data">
-        {{ form.hidden_tag() }}
-        <div>
-            {{ form.profile_picture.label }}
-            {{ form.profile_picture }}
-        </div>
-        <div>
-            {{ form.submit }}
-        </div>
-    </form>
+ <h1>Profile</h1>
+    <div>
+        <img src="{{ current_user.profile_picture }}" alt="Profile Picture">
+    </div>
+    <div>
+        <!-- profile information -->
+    </div>
 {% endblock %}
