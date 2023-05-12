@@ -7,4 +7,7 @@
 	<d style="font-size:20">Email from:&emsp;</d></br></br>
 	<d style="font-size:20">Subject:&emsp;{{email.subject}}</d></br></br></br></br>
 	<p style="font-size:25">{{email.msg}}</p>
+	<form action="{{ url_for('inbox') }}">
+                <d> <input id="back-to-inbox" type = "submit" class = "btn" value = "Back to inbox"></d>
+        </form>
 {% endblock %}
