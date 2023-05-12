@@ -144,6 +144,7 @@ def delete():
         for i in emails:
                 db.session.delete(i)
                 db.session.commit()
+        #delete all of the user's todo items
         todos = Todo.query.filter_by(user_id = current_user.id)
         for i in todos:
                 db.session.delete(i)
@@ -191,14 +192,17 @@ def profile():
 @myapp_obj.route('/inbox',methods=['GET','POST'])
 @login_required
 def inbox(): 
-    #contains compose, searchbar
+        #get all emails that are to the current user
         emails = Email.query.filter_by(user_id = current_user.id)
         if request.method == 'POST':
+                #if they are searching for a specific email, get those
                 emails = Email.query.filter_by(user_id = current_user.id, subject = request.form.get('searchoption'))
+        #show whatever emails have been gotten
         return render_template('inbox.html',emails = emails) 
     
 @myapp_obj.route('/emailReader/<id>',methods=['GET','POST'])
 def emailReader(id):
+        #transfer the info of what email the user wants to the email reader
         email = Email.query.filter_by(id=id).first()
         return render_template('emailReader.html',email=email)
 
@@ -213,10 +217,12 @@ def composer():
                 #new_email.sender = current_user.username
                 users = User.query.all()
                 uid = "null"
+                #find which user the email is being sent to
                 for i in users:
                         if i.username == recipient:
                                 uid = i.id
                 new_email.user_id = uid
+                #if user does not exist, tell user to try again
                 if uid == "null":
                         flash("The user you entered does not exist")
                         return redirect(url_for('composer'))
@@ -228,6 +234,7 @@ def composer():
     
 @myapp_obj.route('/delete_email/<id>')
 def delete_email(id):
+        #delete email that matches the email id
         email=Email.query.filter_by(id=id).first()
         db.session.delete(email)
         db.session.commit()
@@ -236,14 +243,14 @@ def delete_email(id):
 @myapp_obj.route('/todolist')
 @login_required
 def todolist():
-
+        #two lists of todo items
         incomplete = Todo.query.filter_by(complete=False,user_id = current_user.id).all()
         complete = Todo.query.filter_by(complete=True,user_id = current_user.id).all()
         return render_template('todolist.html', incomplete=incomplete, complete=complete)
 
 @myapp_obj.route('/add', methods=['GET','POST'])
 def add():
-        
+        #if the user did not enter an item, ask them to try again
         text = request.form['todoitem']
         if text.isspace() or text == "":
                 flash('Please type the task you would like to add')
@@ -255,7 +262,7 @@ def add():
 
 @myapp_obj.route('/complete/<id>')
 def complete(id):
-
+        #get current todo item by id and switch it to the complete list
         todo = Todo.query.filter_by(id=int(id)).first()
         todo.complete = True
         db.session.commit()
@@ -263,7 +270,7 @@ def complete(id):
 
 @myapp_obj.route('/clearTodo', methods=['GET','POST'])
 def clearTodo():
-
+        #every complete todod item gets deleted
         todo = Todo.query.filter_by(complete=True, user_id = current_user.id)
         for i in todo:
                 db.session.delete(i)
