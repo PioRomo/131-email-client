@@ -22,7 +22,7 @@
         {% for i in emails %}
                 </br>
                 <ul class='emails'>
-                <li> from: </br>subject: {{i.subject}}<d>&nbsp;&emsp;<d><a style="font-size = 25" href="{{ url_for('emailReader', id=i.id) }}">Read</a></li>
+                <li> from: {{i.sender}}</br>subject: {{i.subject}}<d>&nbsp;&emsp;<d><a style="font-size = 25" href="{{ url_for('emailReader', id=i.id) }}">Read</a></li>
                 </ul>
         {% endfor %}
 {% endblock %}
