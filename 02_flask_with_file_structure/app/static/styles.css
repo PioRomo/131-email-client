@@ -4,7 +4,7 @@ body{
   color:white; 
 }
 
-#emails{
+.emails{
   color:black;
   width: 50%;
   border: 7px solid #64391a;
