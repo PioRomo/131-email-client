@@ -180,7 +180,7 @@ def inbox():
         if request.method == 'POST':
                 emails.clear()
                 emails = Email.query.filter_by(user_id = current_user.id, subject = request.form.get('searchoption'))
-        return render_template('inbox.html',emailList = emailList) 
+        return render_template('inbox.html',emails = emails) 
     
 @myapp_obj.route('/emailReader/<id>',methods=['GET','POST'])
 def emailReader(id):
