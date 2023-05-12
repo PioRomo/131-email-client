@@ -49,7 +49,7 @@
   * This upcoming week, we will work on another four functional requirement, which our main ones would be creating a to-do list and making a chat box
   * Milestone 2 will be submitted before 11:59 PM tonight
 
-## 2023-050-02 10:30 - 4:00
+## 2023-05-02 10:30 - 4:00
   * Bryan, Barak, and Jin present
   * Worked on fixing files and being able to see the website
   * Now Bryan, Barak, and Jin are at the same place
