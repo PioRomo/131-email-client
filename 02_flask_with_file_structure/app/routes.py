@@ -246,7 +246,7 @@ def todolist():
 def add():
         
         text = request.form['todoitem']
-        if text.isspace():
+        if text.isspace() or text == "":
                 flash('Please type the task you would like to add')
                 return redirect(url_for('todolist'))
         todo = Todo(text=request.form['todoitem'], complete=False,user_id = current_user.id)
