@@ -196,7 +196,7 @@ def inbox():
         emails = Email.query.filter_by(user_id = current_user.id)
         if request.method == 'POST':
                 #if they are searching for a specific email, get those
-                emails = Email.query.filter_by(user_id = current_user.id, subject = request.form.get('searchoption'))
+                emails = Email.query.filter_by(user_id = current_user.id, sender = request.form.get('searchoption'))
         #show whatever emails have been gotten
         return render_template('inbox.html',emails = emails) 
     
@@ -214,7 +214,10 @@ def composer():
         msg = request.form.get('msg')
         if request.method == 'POST':
                 new_email = Email(recipient = recipient, subject = subject, msg = msg)
-                #new_email.sender = current_user.username
+                sender = current_user.username
+                if sender == new_email.recipient:
+                        sender = "Me"
+                new_email.sender=sender
                 users = User.query.all()
                 uid = "null"
                 #find which user the email is being sent to
