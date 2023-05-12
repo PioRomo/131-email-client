@@ -175,19 +175,16 @@ def profile():
 @myapp_obj.route('/inbox',methods=['GET','POST'])
 @login_required
 def inbox(): 
-        cur_uid = current_user.id
-        emails = Email.query.all()
-        emailList = []
-        for i in emails:
-                if i.user_id == cur_uid:
-                        emailList.append((i.subject,i.msg))
-                        #print(emailList)
-                if request.method == 'POST':
-                        emailList.clear()
-                        emails = Email.query.filter_by(user_id = current_user.id, subject = request.form.get('searchoption'))
-                        for i in emails:
-                            emailList.append((i.subject,i.msg))
-        return render_template('inbox.html',emailList = emailList) 
+        emails = Email.query.filter_by(user_id = current_user.id)
+        if request.method == 'POST':
+                emails.clear()
+                emails = Email.query.filter_by(user_id = current_user.id, subject = request.form.get('searchoption'))
+        return render_template('inbox.html',emails = emails) 
+    
+@myapp_obj.route('/emailReader/<id>',methods=['GET','POST'])
+def emailReader(id):
+        email = Email.query.filter_by(id=id).first()
+        return render_template('emailReader.html',email=email)
 
 @myapp_obj.route('/composer',methods=['GET','POST'])
 @login_required
@@ -212,27 +209,13 @@ def composer():
                 flash("The email has been sent")
                 return redirect('/inbox')
         return render_template('composer.html')
-
-
-
-@myapp_obj.route('/searchbar')
-@login_required
-def searchbar():
-        def search():
-            username = []
-            search = input("Search for username: ").title()
-            find = True
-            
-            while find == True:
-                for i in range (len(username)):
-                    if search == (username[i]):
-                        print ("Emails found: ")
-                        #need help with this part of printing the messages from the user
-                        break
-                    elif i == (len(username)-1):
-                        print ("No emails found")            
-                return
-        return render_template('searchbar.html')
+    
+@myapp_obj.route('/delete_email/<id>')
+def delete_email(id):
+        email=Email.query.filter_by(id=id).first()
+        db.session.delete(email)
+        db.session.commit()
+        return redirect('/inbox')
 
 @myapp_obj.route('/todolist')
 @login_required
