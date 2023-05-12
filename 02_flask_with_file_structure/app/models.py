@@ -31,7 +31,7 @@ class User(db.Model, UserMixin):
 class Email(db.Model):
         id = db.Column(db.Integer, primary_key=True)
         msg = db.Column(db.String(1000), nullable=False)
-        #sender = db.Column(db.String(32), nullable=False)
+        sender = db.Column(db.String(32), nullable=False)
         recipient = db.Column(db.String(32), nullable=False)
         subject = db.Column(db.String(100), nullable=False)
         user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
