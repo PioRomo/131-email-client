@@ -88,6 +88,20 @@ li a:hover{
   
 }
 
+.textBox{
+  border-radius: 10px; 
+  padding:5px; 
+}
+
+.btn{
+  background-color:#f0ca62; 
+  border-radius: 10px; 
+  padding:5px; 
+  color:#222224;
+  
+  
+}
+
 .active{
   background-color:#968808; 
 }
@@ -102,4 +116,3 @@ h4{
   text-align: center; 
   
 }
-
