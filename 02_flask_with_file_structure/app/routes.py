@@ -175,7 +175,6 @@ def profile():
 @myapp_obj.route('/inbox',methods=['GET','POST'])
 @login_required
 def inbox(): 
-        cur_uid = current_user.id
         emails = Email.query.filter_by(user_id = current_user.id)
         if request.method == 'POST':
                 emails.clear()
