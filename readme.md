@@ -32,7 +32,6 @@ Our email web application will allow users to sign up to our application to send
  * Deleting emails
  * Profile Management
  * Send messages
- * Contact book
  * Search Bar
  * Notification after user action
 
@@ -54,7 +53,6 @@ Barak Kaufman
 Jin Chen
  * Profile Management
  * Send messages
- * Contact book
 
 Thien Bryan Nguyen
  * Search Bar
