@@ -21,8 +21,8 @@
         <a class = "circleButtons" href = "{{url_for('profile')}}">Go to Profile</a>
         {% for i in emails %}
                 </br>
-                <ul>
-                <li id = "emails"> from: </br>subject: {{i.subject}}<d>&nbsp;&emsp;<d><a style="font-size = 25" href="{{ url_for('emailReader', id=i.id) }}">Read</a></li>
+                <ul class='emails'>
+                <li> from: </br>subject: {{i.subject}}<d>&nbsp;&emsp;<d><a style="font-size = 25" href="{{ url_for('emailReader', id=i.id) }}">Read</a></li>
                 </ul>
         {% endfor %}
 {% endblock %}
