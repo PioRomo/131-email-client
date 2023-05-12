@@ -65,3 +65,6 @@
   * Bryan has implemented the notification that an email has been sent and making the template for the to do list. Now is working on finishing search bar and helping out Barak with the To Do List
 
 ## 2023-05-12 2:00 - 2:30
+  * Everyone present 
+  * Jin needs to finish profile page 
+  * Bryan is working on doing the chat feature
