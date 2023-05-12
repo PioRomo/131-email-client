@@ -52,6 +52,7 @@ Barak Kaufman
 
 Jin Chen
  * Profile Management
+ * Uploading profile pic 
  * Chat/Send messages
 
 Thien Bryan Nguyen
