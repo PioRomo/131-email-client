@@ -193,7 +193,6 @@ def profile():
 def inbox(): 
         emails = Email.query.filter_by(user_id = current_user.id)
         if request.method == 'POST':
-                emails.clear()
                 emails = Email.query.filter_by(user_id = current_user.id, subject = request.form.get('searchoption'))
         return render_template('inbox.html',emails = emails) 
     
