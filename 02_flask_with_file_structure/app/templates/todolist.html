@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 {% block page %}
-	<body>
-		<h1>Todo List</h1>
-		<div>Add a new todo item:
-			<form action="{{ url_for('add') }}" method="POST">
-				<input type="text" name="todoitem">
-				<input type="submit" value="Add Item" class="btn">
-                
-                <a  href="{{ url_for('complete', id=todo.id) }}">Mark As Complete</a>
-			</form>
-		</div>
-		<div>
+        <body>
+                <h1>Todo List</h1>
+                <div>Add a new todo item:
+                        <form action="{{ url_for('add') }}" method="POST">
+                                <input type="text" name="todoitem">
+                                <input type="submit" value="Add Item" class="btn">
+
+
+                        </form>
+                </div>
+                <div>
                 {% with messages = get_flashed_messages() %}
                 {% if messages %}
                         <div class="notification is-danger">
@@ -18,22 +18,25 @@
                         </div>
                 {% endif %}
                 {% endwith %}
-			<h2>Incomplete Items</h2>
-			<ul>
-				{% for todo in incomplete %}
-				<li style="font-size: 20pt" class='mark'>{{ todo.text }}<d>&nbsp;&emsp;<d><a style="font-size: 15pt" href="{{ url_for('complete', id=todo.id) }}">Mark As Complete</a></li>
-				{% endfor %}	
-			</ul>
-			<h2>Completed Items</h2>
-			<ul>
-				{% for todo in complete %}
-				<li style="font-size: 20pt">{{ todo.text }}<d style="color: black">|</d></li>
-				{% endfor %}
-			</ul>
-		</div>
-	</br>
-	<form action="{{ url_for('clearTodo') }}" method="POST">
-		<input type="submit" value="Clear Completed Tasks" class="btn">
-	</form>
-	</body>
+                        <h2>Incomplete Items</h2>
+                        <div>
+                                {% for todo in incomplete %}
+                                <li class='todoitem' style="font-size: 20pt">{{ todo.text }}
+                                <form action="{{ url_for('complete',id=todo.id) }}">
+                                        <input type="submit" value="Mark as Complete" class="btn">
+                                </form></li>
+                                {% endfor %}
+                        </div><br><br><br><br><br><br>
+                        <h2>Completed Items</h2>
+                        <ul>
+                                {% for todo in complete %}
+                                <li  style="font-size: 20pt">{{ todo.text }}<d style="color: black">|</d></li>
+                                {% endfor %}
+                        </ul>
+                </div>
+        </br>
+        <form action="{{ url_for('clearTodo') }}" method="POST">
+                <input type="submit" value="Clear Completed Tasks" class="btn">
+        </form>
+        </body>
 {% endblock %}
