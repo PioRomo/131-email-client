@@ -4,6 +4,13 @@ body{
   color:white; 
 }
 
+.todoitem{
+  color:black;
+  border: 7px solid #64391a;
+  padding: 7px;
+  background-color: #f0ca62;
+}
+
 .emails{
   color:black;
   width: 50%;
