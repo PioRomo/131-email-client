@@ -285,3 +285,16 @@ def clearTodo():
                 db.session.delete(i)
                 db.session.commit()
         return redirect(url_for('todolist'))
+    
+@myapp_obj.route('/chat', methods=['GET','POST'])
+@login_required
+def chat():
+        recipient = request.form.get('recipient')
+        msg = request.form.get('msg')
+        if request.method == 'POST':
+                new_msg=Chat(searched_for = False, recipient = recipient, msg = msg)
+                sender = current_user.username
+                sender = "Me"
+
+        return redirect(url_for('chat'))
+        return render_template('chat.html')
