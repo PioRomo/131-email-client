@@ -1,2 +1,28 @@
+{% extends 'base.html' %}
+
+{% block page %}
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+                <div style= "font-size:30" class="notification is-danger">
+                {{ messages[0] }}
+                </div>
+        {% endif %}
+        {% endwith %}
+        <title>Bee Chat</title>
+        <h1> <input id="recipient" name="recipient" type="text" class="textbox"></h1>
+        {% for i in chat %}
+                {% if user_id == recipient %}
+                        </br>
+                        <ul class='chat'>
+                        <d style="font-size:20" class=right>{{chat.recipient}}</d></br></br>
+                        <d style="font-size:20" class=right>{{chat.msg}}</d></br></br>
+
+                {% else %}
+                        </br>
+                        <ul class='chat'>
+                        <d style="font-size:20" class=right>{{chat.user.id}}</d></br></br>
+                        <d style="font-size:20" class=right>{{chat.msg}}</d></br></br>
+        <textarea rows=1 cols=50 id="msg" name="msg" type="text" pleceholder="Message" class="textbox>        <d> <input id="sendmsg" type="submit" class="btn" value="Send"> </d>
+{% endblock %}
 
 
