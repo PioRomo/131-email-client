@@ -194,9 +194,15 @@ def profile():
 def inbox(): 
         #get all emails that are to the current user
         emails = Email.query.filter_by(user_id = current_user.id)
+        for i in emails:
+                i.searched_for = False
         if request.method == 'POST':
-                #if they are searching for a specific email, get those
-                emails = Email.query.filter_by(user_id = current_user.id, sender = request.form.get('searchoption'))
+                #if they are searching for a specific email, mark all emails whose subject contains the string they entered
+                searchoption = request.form.get('searchoption')
+                for i in emails:
+                        if i.subject.casefold().find(searchoption.casefold()) != -1:
+                                i.searched_for = True
+                emails = Email.query.filter_by(user_id = current_user.id, searched_for = True)
         #show whatever emails have been gotten
         return render_template('inbox.html',emails = emails) 
     
@@ -213,7 +219,7 @@ def composer():
         subject = request.form.get('subject')
         msg = request.form.get('msg')
         if request.method == 'POST':
-                new_email = Email(recipient = recipient, subject = subject, msg = msg)
+                new_email = Email(searched_for = False, recipient = recipient, subject = subject, msg = msg)
                 sender = current_user.username
                 if sender == new_email.recipient:
                         sender = "Me"

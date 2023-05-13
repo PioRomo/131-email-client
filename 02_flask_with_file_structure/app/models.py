@@ -35,7 +35,8 @@ class Email(db.Model):
         recipient = db.Column(db.String(32), nullable=False)
         subject = db.Column(db.String(100), nullable=False)
         user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-        
+        searched_for = db.Column(db.Boolean)
+
         def __repr__(self):
                 return f'<user {self.user_id}: {self.recipient}> email: {self.id}'
 class Todo(db.Model):
