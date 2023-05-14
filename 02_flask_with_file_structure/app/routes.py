@@ -1,9 +1,10 @@
 from flask import render_template, request, redirect, url_for, session, flash
-from .forms import LoginForm
+from .forms import LoginForm, ProfilePictureForm
+from flask import current_app
 from app import myapp_obj,db
 from app.models import User, Email, Todo
 from flask_wtf import FlaskForm
-
+from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, ValidationError
 import phonenumbers
@@ -14,6 +15,7 @@ from .models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 from flask_login import current_user, login_user, logout_user, login_required
+from .config import ALLOWED_EXTENSIONS
 
 @myapp_obj.route("/")
 @myapp_obj.route('/hello')           
@@ -157,13 +159,15 @@ def delete():
     
    return render_template('deleteAccount.html')
 
-
-UPLOAD_FOLDER = 'myapp/static/images/profile'
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
-
 @myapp_obj.route('/upload_profile_picture', methods=['GET', 'POST'])
 @login_required
 def upload_profile_picture():
+    UPLOAD_FOLDER = os.path.join(current_app.root_path, 'static/images/profile/')
+    
+    # check if UPLOAD_FOLDER exists, if not, create it
+    if not os.path.exists(UPLOAD_FOLDER):
+        os.makedirs(UPLOAD_FOLDER)
+
     form = ProfilePictureForm()
     if form.validate_on_submit():
         file = form.profile_picture.data
@@ -171,15 +175,16 @@ def upload_profile_picture():
             filename = secure_filename(file.filename)
             file_path = os.path.join(UPLOAD_FOLDER, filename)
             file.save(file_path)
-            
+
             # Update the user's profile picture field in the database
-            current_user.profile_picture = file_path
+            current_user.profile_picture = filename  
             db.session.commit()
-            
+
             flash('Profile picture uploaded successfully!')
             return redirect(url_for('profile'))
     return render_template('upload_profile_picture.html', form=form)
 
+#Check for allowed extensions
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
