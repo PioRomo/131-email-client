@@ -11,7 +11,7 @@ class User(db.Model, UserMixin):
     phonenumber = db.Column(db.String(100), nullable=False)
     emails = db.relationship('Email', backref='User', lazy='dynamic')
     todos = db.relationship('Todo', backref='User', lazy='dynamic')
-    profile_picture = db.Column(db.String(255))
+    profile_picture = db.Column(db.String(120))
 
     
 
