@@ -3,7 +3,7 @@
 {% block page %}
  <h1>My Profile</h1>
 <div>
-    <img src="{{ url_for('static', filename='images/profile/' + current_user.username) }}" alt="Profile Picture">
+    <img src="{{ url_for('static', filename='images/profile/' + current_user.profile_picture) }}" alt="Profile Picture">
 </div>
 <div>
     <a href="{{ url_for('upload_profile_picture') }}">Change Profile Picture</a>
