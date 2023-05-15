@@ -308,8 +308,8 @@ def chat():
                     if i.username == recipient:
                         uid = i.id
                                 
-                new_chat.user_id = uid:
-                if uid == "null"
+                new_chat.user_id = uid
+                if uid == "null":
                         flash("The user you entered does not exist")
                         return(redirect(url_for('chat'))
                 db.session.add(new_chat)
