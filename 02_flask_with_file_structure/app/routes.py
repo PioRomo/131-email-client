@@ -300,6 +300,18 @@ def chat():
                 new_msg=Chat(searched_for = False, recipient = recipient, msg = msg)
                 sender = current_user.username
                 sender = "Me"
-
+                new_email.sender=sender
+                users = User.query.all()
+                uid = "null"
+                #find which user the email is being sent to
+                for i in users:
+                        if i.username == recipient:
+                                uid = i.id
+                new_email.user_id = uid
+                #if user does not exist, tell user to try again
+                if uid == "null":
+                        flash("The user you entered does not exist")
+                db.session.add(new_chat)
+                db.session.commit()
         return redirect(url_for('chat'))
         return render_template('chat.html')
