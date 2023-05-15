@@ -296,17 +296,18 @@ def clearTodo():
 def chat():
         recipient = request.form.get('recipient')
         msg = request.form.get('msg')
-        if request.method == 'POST'
+        if request.method == 'POST':
                 new_chat = Chat(searched_for = False, recipient = recipient, msg = msg)
                 sender = current_user.username
-                if sernder == new_chat.recipient:
-                        sender = "Me"
+                if sender == new_chat.recipient:
+                    sender = "Me"
                 new_chat.sender = sender
                 users = User.query.all()
                 uid = "null"
                 for i in users:
-                        if i.username == recipient:
-                                uid = i.id
+                    if i.username == recipient:
+                        uid = i.id
+                                
                 new_chat.user_id = uid
                 if uid == "null"
                         flash("The user you entered does not exist")
