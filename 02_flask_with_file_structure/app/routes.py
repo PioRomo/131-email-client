@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 from .forms import LoginForm, ProfilePictureForm
 from flask import current_app
 from app import myapp_obj,db
-from app.models import User, Email, Todo
+from app.models import User, Email, Todo, Message
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, SubmitField
