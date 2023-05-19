@@ -291,9 +291,9 @@ def clearTodo():
                 db.session.commit()
         return redirect(url_for('todolist'))
     
-@myapp_obj.route('/chat')
+@myapp_obj.route('/chat/<recipient>', methods=['GET', 'POST'])
 @login_required
-def chat():
+def chat(recipient):
     #return redirect(url_for('chat'))
     user = User.query.filter_by(username=recipient).first_or_404()
     form = MessageForm()
