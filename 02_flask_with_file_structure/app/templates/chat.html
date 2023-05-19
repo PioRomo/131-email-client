@@ -1,30 +1,54 @@
-{% extends 'base.html' %}
-
-{% block page %}
-        {% with messages = get_flashed_messages() %}
-        {% if messages %}
-                <div style= "font-size:30" class="notification is-danger">
-                {{ messages[0] }}
-                </div>
-        {% endif %}
-        {% endwith %}
-        <title>Bee Chat</title>
-        <h1> <input id="recipient" name="recipient" type="text" class="textbox"></h1>
-        {% for i in chat %}
-                {% if user_id == recipient %}
-                        </br>
-                        <ul class='chat'>
-                        <d style="font-size:20" class=right>{{chat.recipient}}</d></br></br>
-                        <d style="font-size:20" class=right>{{chat.msg}}</d></br></br>
-
-                {% else %}
-                        </br>
-                        <ul class='chat'>
-                        <d style="font-size:20" class=left>{{chat.user.id}}</d></br></br>
-                        <d style="font-size:20" class=left>{{chat.msg}}</d></br></br>
-                        <textarea rows=1 cols=50 id="msg" name="msg" type="text" pleceholder="Message" class="textbox>        <d> <input id="sendmsg" type="submit" class="btn" value="Send"> </d>
-                {% endif %}
-        {% endfor %}
-{% endblock %}
-
-
+<!DOCTYPE html>
+<html lang="pt-EN">
+<head>
+<link rel="stylesheet" href="/static/styles.css">
+<title>Bee Chat</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/></head>
+<body>
+<script type="text/javascript" charset="utf-8">
+const socket = io();
+socket.on('server_message', (data) => {
+    let e = document.createElement('p');
+    let sp = document.createElement('span');
+    sp.innerHTML = data.nickname;
+    e.appendChild(sp);
+    e.innerHTML = e.innerHTML+'>> '+data.message;
+    if(document.getElementById('message-box').children.length>20){
+        document.getElementById('message-box').removeChild(document.getElementById('message-box').chi>    }
+    document.getElementById('message-box').appendChild(e);
+    document.getElementById('message-box').scroll(0, document.getElementById('message-box').scrollHei>});
+function htmlEntities(str) {
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/>}
+function sendMessage(){
+    socket.emit('client_message', {'nickname': htmlEntities(document.getElementById('nickname-input')>    document.getElementById('message-input').value = '';
+}
+function isPressingEnter(e){
+    let k;
+    if(window.event){
+        k = e.keyCode;
+        if(k===13){
+            sendMessage();
+        }
+    }else if(e.which){
+        k = e.which;
+        if(k===13){
+            sendMessage();
+        }
+    }
+}
+</script>
+<h1 id="title">Bee Chat</h1>
+<section id="chat-box">
+    <section id="message-box">
+    </section>
+    <section id="input-box">
+        <input type="text" autofocus onkeypress="return isPressingEnter(event)" required placeholder=>        <button type="button" id="send-button" onclick="sendMessage()" >>></button>
+    </section>
+</section>
+<section id="nickname-box">
+    <label id="nickname-label" for="nickname-input">Nickname: </label>
+    <input type="text" id="nickname-input" autocomplete="off" value="Guest">
+</section>
+</body>
+</html>
