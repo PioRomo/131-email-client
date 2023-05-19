@@ -66,7 +66,7 @@ class Message(db.Model):
     creator_id = db.Column(db.Integer(), db.ForeignKey('user.id'))
     recipient_id =  db.Column(db.Integer(), db.ForeignKey('user.id'))
     message_body  = db.Column(db.String(255))
-    timestamp = db.Column(db.DateTime, index=True, default=datetime.datetime.utcnow)
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     
     def __repr__(self):
         return f'<Message {self.id}: {self.message_body}>'
