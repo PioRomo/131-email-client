@@ -19,4 +19,8 @@ class RegisterForm(FlaskForm):
 class ProfilePictureForm(FlaskForm):
     profile_picture = FileField('Profile Picture', validators=[FileAllowed(ALLOWED_EXTENSIONS, 'Images only!')])
     submit = SubmitField('Submit')
+  
+class MessageForm(FlaskForm):
+    message = StringField('Message', validators=[DataRequired()])
+    submit = SubmitField('Send')
 
