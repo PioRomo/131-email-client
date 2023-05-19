@@ -291,7 +291,7 @@ def clearTodo():
                 db.session.commit()
         return redirect(url_for('todolist'))
     
-@myapp_obj.route('/chat/<recipient>', methods=['GET', 'POST'])
+@myapp_obj.route('/sendchat/<recipient>', methods=['GET', 'POST'])
 @login_required
 def chat(recipient):
     #return redirect(url_for('chat'))
@@ -303,7 +303,7 @@ def chat(recipient):
         db.session.commit()
         flash('Your message has been sent.')
         return redirect(url_for('profile', username=recipient))
-    return render_template('chat.html', title='Send Message', form=form, recipient=recipient)
+    return render_template('sendchat.html', title='Send Message', form=form, recipient=recipient)
 
 
 def receive_message():
