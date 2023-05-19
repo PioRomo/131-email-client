@@ -297,7 +297,7 @@ socketio = SocketIO(app)
 @myapp_obj.route('/chat')
 @login_required
 def chat():
-    return redirect(url_for('chat'))
+    #return redirect(url_for('chat'))
     return render_template('chat.html')
 @socketio.on('client_message')
 def receive_message (client_msg):
