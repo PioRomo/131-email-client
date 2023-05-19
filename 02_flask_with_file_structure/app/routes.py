@@ -90,7 +90,7 @@ def register():
                 flash('Password must have one number')
                 return redirect(url_for('register'))
             
-            new_user = User(phonenumber=phonenumber, username=username, password=generate_password_hash(password, method='sha256'))
+            new_user = User(phonenumber=phonenumber, username=username, password=generate_password_hash(password, method='sha256'),profile_picture='null')
             #create a new user and add to the database
             db.session.add(new_user)
             db.session.commit()
