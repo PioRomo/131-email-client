@@ -1,4 +1,4 @@
-from flask import render_template, request, redirect, url_for, session, flash
+from flask import flask, render_template, request, redirect, url_for, session, flash
 from .forms import LoginForm, ProfilePictureForm
 from flask import current_app
 from app import myapp_obj,db
@@ -6,6 +6,7 @@ from app.models import User, Email, Todo
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, SubmitField
+from flask_socketio import SocketIO, emit
 from wtforms.validators import DataRequired, ValidationError
 import phonenumbers
 import uuid
