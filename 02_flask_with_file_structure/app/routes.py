@@ -6,7 +6,6 @@ from app.models import User, Email, Todo
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileField, FileAllowed
 from wtforms import StringField, SubmitField
-from flask_socketio import SocketIO, emit
 from wtforms.validators import DataRequired, ValidationError
 import phonenumbers
 import uuid
