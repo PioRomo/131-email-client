@@ -293,7 +293,9 @@ def clearTodo():
     
 app = Flask(__name__, template_folder='templates', static_folder='static', static_url_path='/static/')socketio = SocketIO(app)
 @myapp_obj.route('/chat')
+@login_required
 def chat():
+    return redirect(url_for('chat')
     return render_template('chat.html')
 @socketio.on('client_message')
 def receive_message (client_msg):
