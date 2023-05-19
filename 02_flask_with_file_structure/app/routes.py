@@ -298,7 +298,16 @@ socketio = SocketIO(app)
 @login_required
 def chat():
     #return redirect(url_for('chat'))
-    return render_template('chat.html')
+    user = User.query.filter_by(username=recipient).first_or_404()
+    form = MessageForm()
+    if form.validate_on_submit():
+        msg = Message(author=current_user, recipient=user, body=form.message.data)
+        db.session.add(msg)
+        db.session.commit()
+        flash('Your message has been sent.')
+        return redirect(url_for('profile', username=recipient))
+    return render_template('chat.html', title='Send Message', form=form, recipient=recipient)
+
 @socketio.on('client_message')
 def receive_message (client_msg):
     emit('server_message', client_msg, broadcast=True)
