@@ -292,8 +292,6 @@ def clearTodo():
                 db.session.commit()
         return redirect(url_for('todolist'))
     
-app = Flask(__name__, template_folder='templates', static_folder='static', static_url_path='/static/')
-socketio = SocketIO(app)
 @myapp_obj.route('/chat')
 @login_required
 def chat():
@@ -308,8 +306,8 @@ def chat():
         return redirect(url_for('profile', username=recipient))
     return render_template('chat.html', title='Send Message', form=form, recipient=recipient)
 
-@socketio.on('client_message')
-def receive_message (client_msg):
-    emit('server_message', client_msg, broadcast=True)
-if __name__ == '__main__':
-    socketio.run(app)
+
+def receive_message():
+    db.session.commit()
+    messages = current_user.received_messages.order_by(Message.timestamp.desc())
+    return render_template('chat.html', messages=messages)
