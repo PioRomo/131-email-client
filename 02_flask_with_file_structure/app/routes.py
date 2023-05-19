@@ -1,4 +1,4 @@
-from flask import flask, render_template, request, redirect, url_for, session, flash
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 from .forms import LoginForm, ProfilePictureForm
 from flask import current_app
 from app import myapp_obj,db
