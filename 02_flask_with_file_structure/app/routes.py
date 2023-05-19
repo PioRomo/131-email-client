@@ -291,28 +291,12 @@ def clearTodo():
                 db.session.commit()
         return redirect(url_for('todolist'))
     
-@myapp_obj.route('/chat', methods=['GET','POST'])
-@login_required
+app = Flask(__name__, template_folder='templates', static_folder='static', static_url_path='/static/')socketio = SocketIO(app)
+@myapp_obj.route('/chat')
 def chat():
-        recipient = request.form.get('recipient')
-        msg = request.form.get('msg')
-        if request.method == 'POST':
-                new_chat = Chat(searched_for = False, recipient = recipient, msg = msg)
-                sender = current_user.username
-                if sender == new_chat.recipient:
-                    sender = "Me"
-                new_chat.sender = sender
-                users = User.query.all()
-                uid = "null"
-                for i in users:
-                    if i.username == recipient:
-                        uid = i.id
-                                
-                new_chat.user_id = uid
-                if uid == "null":
-                        flash("The user you entered does not exist")
-                        return redirect(url_for('chat'))
-                db.session.add(new_chat)
-                db.session.commit()
-                return redirect('/chat')
-        return render_template('chat.html')
+    return render_template('chat.html')
+@socketio.on('client_message')
+def receive_message (client_msg):
+    emit('server_message', client_msg, broadcast=True)
+if __name__ == '__main__':
+    socketio.run(app)
