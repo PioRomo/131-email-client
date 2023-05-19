@@ -12,6 +12,9 @@ class User(db.Model, UserMixin):
     emails = db.relationship('Email', backref='User', lazy='dynamic')
     todos = db.relationship('Todo', backref='User', lazy='dynamic')
     profile_picture = db.Column(db.String(120), nullable=False)
+    sent_messages = db.relationship('Message', foreign_keys='Message.sender_id', backref='author', lazy='dynamic')
+    received_messages = db.relationship('Message', foreign_keys='Message.recipient_id', backref='recipient', lazy='dynamic')
+
 
     
 
