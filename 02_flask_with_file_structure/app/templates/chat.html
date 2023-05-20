@@ -1,57 +1,24 @@
 {% extends 'base.html' %}
 {% block page %}
-<!DOCTYPE html>
-<html lang="pt-EN">
-<head>
-<link rel="stylesheet" href="/static/styles.css">
-<title>Bee Chat</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/></head>
-<body>
-<script type="text/javascript" charset="utf-8">
-const socket = io();
-socket.on('server_message', (data) => {
-    let e = document.createElement('p');
-    let sp = document.createElement('span');
-    sp.innerHTML = data.nickname;
-    e.appendChild(sp);
-    e.innerHTML = e.innerHTML+'>> '+data.message;
-    if(document.getElementById('message-box').children.length>20){
-        document.getElementById('message-box').removeChild(document.getElementById('message-box').chi>    }
-    document.getElementById('message-box').appendChild(e);
-    document.getElementById('message-box').scroll(0, document.getElementById('message-box').scrollHei>});
-function htmlEntities(str) {
-    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/>}
-function sendMessage(){
-    socket.emit('client_message', {'nickname': htmlEntities(document.getElementById('nickname-input')>    document.getElementById('message-input').value = '';
-}
-function isPressingEnter(e){
-    let k;
-    if(window.event){
-        k = e.keyCode;
-        if(k===13){
-            sendMessage();
-        }
-    }else if(e.which){
-        k = e.which;
-        if(k===13){
-            sendMessage();
-        }
-    }
-}
-</script>
-<h1 id="title">Bee Chat</h1>
-<section id="chat-box">
-    <section id="message-box">
-    </section>
-    <section id="input-box">
-        <input type="text" autofocus onkeypress="return isPressingEnter(event)" required placeholder=>        <button type="button" id="send-button" onclick="sendMessage()" >>></button>
-    </section>
-</section>
-<section id="nickname-box">
-    <label id="nickname-label" for="nickname-input">Nickname: </label>
-    <input type="text" id="nickname-input" autocomplete="off" value="Guest">
-</section>
-</body>
-</html>
+
+<div class="center">
+	<p>Bee Chat</p>
+</div>
+<div class="center">
+	<section id="chat_area">
+		{% for i in chats %}
+			{% if i.user_id == current_user.id %}
+				<li3>{{i.sender}} ->> {{i.msg}}</li3>
+			{% else -%}
+				<li4>{{i.msg}} <<- {{i.sender}}</li4>
+			{% endif %}
+			<br>
+		{% endfor %}
+</div>
+<form action="{{ url_for('send_message') }}" method="POST">
+	<div id="send_chat">
+	<textarea rows=4 cols=40 type="text" name="msg" placeholder="send chat message as User: >{{current_user.username}}<"></textarea>
+	<input type="submit" value="Send chat" class="btn">
+	</div>
+</form>		
 {% endblock %}
