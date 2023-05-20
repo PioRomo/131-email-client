@@ -21,6 +21,7 @@ class ProfilePictureForm(FlaskForm):
     submit = SubmitField('Submit')
   
 class MessageForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
     message = StringField('Message', validators=[DataRequired()])
     submit = SubmitField('Send')
 
