@@ -1,9 +1,21 @@
-{% extends "base.html" %}
-{% block content %}
-    <h1>Send Message</h1>
-    <form method="post">
-        {{ form.hidden_tag() }}
-        {{ form.message.label }} {{ form.message(size=80) }}<br>
-        {{ form.submit() }}
-    </form>
+{% extends 'base.html' %}
+{% block page %}
+<!DOCTYPE html>
+<html lang="pt-EN">
+<body>
+
+<h1 id="title">Bee Chat</h1>
+<section id="chat-box">
+    <section id="message-box">
+    </section>
+    <section id="input-box">
+        <input type="text" autofocus onkeypress="return isPressingEnter(event)" required placeholder=>        <button type="button" id="send-button" onclick="sendMessage()" >>></button>
+    </section>
+</section>
+<section id="nickname-box">
+    <label id="nickname-label" for="nickname-input">Nickname: </label>
+    <input type="text" id="nickname-input" autocomplete="off" value="Guest">
+</section>
+</body>
+</html>
 {% endblock %}
