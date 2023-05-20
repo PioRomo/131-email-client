@@ -291,24 +291,19 @@ def clearTodo():
                 db.session.commit()
         return redirect(url_for('todolist'))
     
-@myapp_obj.route('/sendchat', methods=['GET', 'POST'])
+@myapp_obj.route('/chat', methods=['GET', 'POST'])
 @login_required
-def sendchat():
-    #return redirect(url_for('chat'))
-    
-    form = MessageForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).first()
-        msg = Message(author=current_user, recipient=user, body=form.message.data)
-        db.session.add(msg)
-        db.session.commit()
-        flash('Your message has been sent.')
-        return redirect(url_for('profile', username=recipient))
-    return render_template('sendchat.html', title='Send Message', form=form)
+def chat():
+    chats = Chat.query.all()
+    return render_template('chat.html',chats=chats )
 
-@myapp_obj.route('/chat')
-@login_required
-def receive_message():
-    db.session.commit()
-    messages = current_user.received_messages.order_by(Message.timestamp.desc())
-    return render_template('chat.html', messages=messages)
+@myapp_obj.route('/send_message', methods=['GET', 'POST'])
+def send_message():
+        msg = request.form.get('msg')
+        if msg.isspace() or msg == "":
+                return redirect('/chat')
+        new_chat = Chat(msg=msg, sender = current_user.username, user_id = current_user.id)
+        db.session.add(new_chat)
+        db.session.commit()
+        if request.method == 'POST':
+                return redirect('/chat')
