@@ -304,7 +304,7 @@ def sendchat():
         db.session.commit()
         flash('Your message has been sent.')
         return redirect(url_for('profile', username=recipient))
-    return render_template('sendchat.html', title='Send Message', form=form, recipient=recipient)
+    return render_template('sendchat.html', title='Send Message', form=form, recipient=user)
 
 @myapp_obj.route('/chat')
 @login_required
