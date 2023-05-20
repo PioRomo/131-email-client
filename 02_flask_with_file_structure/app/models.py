@@ -74,10 +74,9 @@ class Message(db.Model):
 class Chat(db.Model):
         id = db.Column(db.Integer, primary_key=True)
         msg = db.Column(db.String(1000), nullable=False)
-        #sender = db.Column(db.String(32), nullable=False)
-        recipient = db.Column(db.String(32), nullable=False)
+        sender = db.Column(db.String(32), nullable=False)
         user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
         def __repr__(self):
-                return f'<user {self.user_id}: {self.recipient}> chat: {self.id}'
+                return f'<user {self.user_id}> chat: {self.id}'
 
