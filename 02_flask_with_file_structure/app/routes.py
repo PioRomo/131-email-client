@@ -293,7 +293,7 @@ def clearTodo():
     
 @myapp_obj.route('/sendchat', methods=['GET', 'POST'])
 @login_required
-def sendchat():
+def sendchat(recipient):
     #return redirect(url_for('chat'))
     
     form = MessageForm()
@@ -304,7 +304,7 @@ def sendchat():
         db.session.commit()
         flash('Your message has been sent.')
         return redirect(url_for('profile', username=recipient))
-    return render_template('sendchat.html', title='Send Message', form=form, recipient=user)
+    return render_template('sendchat.html', title='Send Message', form=form, recipient=recipient)
 
 @myapp_obj.route('/chat')
 @login_required
